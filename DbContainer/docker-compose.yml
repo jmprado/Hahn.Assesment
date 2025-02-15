@@ -1,0 +1,14 @@
+services:
+  ms_sql_server:
+    image: mcr.microsoft.com/mssql/server:2019-latest
+    ports:
+      - "1433:1433"
+    environment:
+      ACCEPT_EULA: "Y"
+      MSSQL_SA_PASSWORD: "Password123!"
+      MSSQL_PID: "Developer"
+    volumes:
+      - db_data:/var/opt/mssql
+
+volumes:
+  db_data:
