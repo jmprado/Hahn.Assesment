@@ -4,7 +4,8 @@ namespace Hahn.Assesment.Infrastructure.Persistence.Repositories
 {
     public interface IAlertRepository
     {
-        Task<IEnumerable<Alerts>> GetReportAsync();
-        Task SaveReport(Alerts severityReport);
+        Task<Alert> GetAlertAsync();
+        Task<AlertReport> GetReportByCategoryAsync(string category);
+        Task SaveReportAsync(Alert alert);
     }
 }

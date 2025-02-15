@@ -18,13 +18,11 @@ namespace Hahn.Assesment.Infrastructure.Configurations
                 .IsRequired()
                 .HasMaxLength(200);
 
-            builder.Property(sc => sc.SeverityAlertId)
+            builder.Property(sc => sc.AlertId)
                 .IsRequired();
 
-            builder.HasOne(sc => sc.SeverityAlert)
-                .WithMany()
-                .HasForeignKey(sc => sc.SeverityAlertId)
-                .OnDelete(DeleteBehavior.Cascade);
+            builder.Property(sr => sr.AlertId)
+                .IsRequired();
         }
     }
 }

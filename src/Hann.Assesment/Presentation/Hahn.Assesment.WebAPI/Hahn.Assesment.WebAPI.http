@@ -1,0 +1,6 @@
+@Hahn.Assesment.WebAPI_HostAddress = http://localhost:5067
+
+GET {{Hahn.Assesment.WebAPI_HostAddress}}/weatherforecast/
+Accept: application/json
+
+###
