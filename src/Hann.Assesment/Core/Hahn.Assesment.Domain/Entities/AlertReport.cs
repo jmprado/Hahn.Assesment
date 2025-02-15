@@ -18,6 +18,6 @@ public class AlertReport
     public int? ImageThumbWidth { get; set; }
     public int? ImageThumbHeight { get; set; }
 
-    public Guid SeverityAlertId { get; set; }
-    public virtual Alerts? SeverityAlert { get; set; }
+    public Guid AlertId { get; set; }
+    public virtual Alert? Alerts { get; set; }
 }

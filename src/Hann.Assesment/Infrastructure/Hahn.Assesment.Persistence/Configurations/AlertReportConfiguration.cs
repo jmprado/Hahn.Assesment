@@ -48,13 +48,8 @@ public class AlertReportConfiguration : IEntityTypeConfiguration<AlertReport>
         builder.Property(sr => sr.BlurHash)
             .HasMaxLength(100);
 
-        builder.Property(sr => sr.SeverityAlertId)
+        builder.Property(sr => sr.AlertId)
             .IsRequired();
-
-        builder.HasOne(sr => sr.SeverityAlert)
-            .WithMany()
-            .HasForeignKey(sr => sr.SeverityAlertId)
-            .OnDelete(DeleteBehavior.Cascade);
 
         builder.HasIndex(sr => sr.Category)
             .HasDatabaseName("IX_SeverityReport_Category");

@@ -11,19 +11,19 @@ public class AlertApiProfile : Profile
         CreateMap<AlertReportApiModel, AlertReport>()
             .ForMember(dest => dest.Id, opt => opt.MapFrom(src => src.MeldungId))
             .ForMember(dest => dest.ExtraAttribute, opt => opt.MapFrom(src => src.ZusatzAttribute))
-            .ForMember(dest => dest.SeverityAlertId, opt => opt.Ignore())
-            .ForMember(dest => dest.SeverityAlert, opt => opt.Ignore());
+            .ForMember(dest => dest.AlertId, opt => opt.Ignore())
+            .ForMember(dest => dest.Alerts, opt => opt.Ignore());
 
         CreateMap<AlertCategoryApiModel, AlertCategory>()
             .ForMember(dest => dest.Category, opt => opt.MapFrom(src => src.Category))
             .ForMember(dest => dest.Condition, opt => opt.MapFrom(src => src.Auspraegung))
-            .ForMember(dest => dest.SeverityAlertId, opt => opt.Ignore())
-            .ForMember(dest => dest.SeverityAlert, opt => opt.Ignore());
+            .ForMember(dest => dest.AlertId, opt => opt.Ignore())
+            .ForMember(dest => dest.Alerts, opt => opt.Ignore());
 
-        CreateMap<AlertApiModel, Alerts>()
+        CreateMap<AlertApiModel, Alert>()
             .ForMember(dest => dest.Id, opt => opt.Ignore())
             .ForMember(dest => dest.UpdatedAt, opt => opt.MapFrom(src => DateTime.Now))
-            .ForMember(dest => dest.SeverityReport, opt => opt.MapFrom(src => src.AlertReports))
-            .ForMember(dest => dest.SeverityCategories, opt => opt.MapFrom(src => src.AlertCategories));
+            .ForMember(dest => dest.AlertReports, opt => opt.MapFrom(src => src.AlertReports))
+            .ForMember(dest => dest.AlertCategories, opt => opt.MapFrom(src => src.AlertCategories));
     }
 }

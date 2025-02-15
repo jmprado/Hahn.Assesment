@@ -6,7 +6,7 @@ public class AlertCategory
     public string Category { get; set; } = "";
     public string Condition { get; set; } = "";
 
-    public Guid SeverityAlertId { get; set; }
+    public Guid AlertId { get; set; }
 
-    public virtual Alerts? SeverityAlert { get; set; }
+    public virtual Alert? Alerts { get; set; }
 }

@@ -4,12 +4,22 @@ namespace Hahn.Assesment.Infrastructure.Persistence.Repositories
 {
     public class AlertRepository : IAlertRepository
     {
-        public async Task<IEnumerable<Alerts>> GetReportAsync()
+        public async Task<IEnumerable<Alert>> GetReportAsync()
         {
             throw new NotImplementedException();
         }
 
-        public async Task SaveReport(Alerts severityAlert)
+        public async Task SaveReportAsync(Alert alert)
+        {
+            throw new NotImplementedException();
+        }
+
+        public Task<Alert> GetAlertAsync()
+        {
+            throw new NotImplementedException();
+        }
+
+        public Task<AlertReport> GetReportByCategoryAsync(string category)
         {
             throw new NotImplementedException();
         }
