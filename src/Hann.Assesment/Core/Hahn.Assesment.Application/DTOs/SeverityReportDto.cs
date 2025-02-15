@@ -1,6 +1,6 @@
 ﻿using Hahn.Assesment.Domain;
 
-namespace Hahn.Assesment.Application.DTOs.SeverityDtos;
+namespace Hahn.Assesment.Application.DTOs;
 
 public class SeverityReportDto
 {

@@ -15,6 +15,10 @@ Project("{FAE04EC0-301F-11D3-BF4B-00C04F79EFBC}") = "Hahn.Assesment.Application"
 EndProject
 Project("{FAE04EC0-301F-11D3-BF4B-00C04F79EFBC}") = "Hahn.Assesment.Persistence", "Infrastructure\Hahn.Assesment.Persistence\Hahn.Assesment.Persistence.csproj", "{73046F38-8EA7-4593-BAFE-BB89A256AF9A}"
 EndProject
+Project("{2150E333-8FDC-42A3-9474-1A3956D46DE8}") = "Tests", "Tests", "{1BA3FAC2-C34E-471D-94DA-3B0CA189279F}"
+EndProject
+Project("{FAE04EC0-301F-11D3-BF4B-00C04F79EFBC}") = "Hahn.Assesment.Tests", "Tests\TestProject1\Hahn.Assesment.Tests.csproj", "{AB517144-B284-4952-9E03-4E7EC2F955C8}"
+EndProject
 Global
 	GlobalSection(SolutionConfigurationPlatforms) = preSolution
 		Debug|Any CPU = Debug|Any CPU
@@ -33,6 +37,10 @@ Global
 		{73046F38-8EA7-4593-BAFE-BB89A256AF9A}.Debug|Any CPU.Build.0 = Debug|Any CPU
 		{73046F38-8EA7-4593-BAFE-BB89A256AF9A}.Release|Any CPU.ActiveCfg = Release|Any CPU
 		{73046F38-8EA7-4593-BAFE-BB89A256AF9A}.Release|Any CPU.Build.0 = Release|Any CPU
+		{AB517144-B284-4952-9E03-4E7EC2F955C8}.Debug|Any CPU.ActiveCfg = Debug|Any CPU
+		{AB517144-B284-4952-9E03-4E7EC2F955C8}.Debug|Any CPU.Build.0 = Debug|Any CPU
+		{AB517144-B284-4952-9E03-4E7EC2F955C8}.Release|Any CPU.ActiveCfg = Release|Any CPU
+		{AB517144-B284-4952-9E03-4E7EC2F955C8}.Release|Any CPU.Build.0 = Release|Any CPU
 	EndGlobalSection
 	GlobalSection(SolutionProperties) = preSolution
 		HideSolutionNode = FALSE
@@ -41,5 +49,6 @@ Global
 		{E62A3490-6169-4DC3-8EE4-B06E81DD47AA} = {1D4A33A9-F975-4A7F-A6AA-94307F4075A7}
 		{E3D808D3-3BAB-462F-9804-ED3F6A00A0C4} = {1D4A33A9-F975-4A7F-A6AA-94307F4075A7}
 		{73046F38-8EA7-4593-BAFE-BB89A256AF9A} = {76097951-86C1-43F4-8489-86CFEDBD6390}
+		{AB517144-B284-4952-9E03-4E7EC2F955C8} = {1BA3FAC2-C34E-471D-94DA-3B0CA189279F}
 	EndGlobalSection
 EndGlobal

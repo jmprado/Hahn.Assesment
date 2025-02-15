@@ -4,6 +4,6 @@ namespace Hahn.Assesment.Persistence.Services.Interfaces
 {
     public interface ISeverityApiService
     {
-        public Task<RootObj?> GetSeverityDataAsync();
+        public Task<AlertApiModel?> GetSeverityDataAsync();
     }
 }

@@ -1,6 +1,4 @@
-﻿using Hahn.Assesment.Domain.Entities;
-
-namespace Hahn.Assesment.Domain;
+﻿namespace Hahn.Assesment.Domain.Entities;
 
 public class SeverityReport
 {

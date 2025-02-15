@@ -2,7 +2,7 @@
 
 namespace Hahn.Assesment.Domain.SeverityService;
 
-public class HighestSeverity
+public class HighestSeverityModel
 {
     [JsonProperty("category")]
     public required string Category { get; set; }

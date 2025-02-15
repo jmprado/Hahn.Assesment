@@ -8,7 +8,7 @@ namespace Hahn.Assesment.Infrastructure.Configurations
     {
         public void Configure(EntityTypeBuilder<SeverityCategory> builder)
         {
-            builder.HasKey(sc => sc.Category);
+            builder.HasKey(sc => sc.Id);
 
             builder.Property(sc => sc.Category)
                 .IsRequired()

@@ -14,7 +14,7 @@ namespace Hahn.Assesment.Persistence.Services
             _configuration = configuration;
         }
 
-        public async Task<RootObj?> GetSeverityDataAsync()
+        public async Task<AlertApiModel?> GetSeverityDataAsync()
         {
             try
             {
@@ -23,7 +23,7 @@ namespace Hahn.Assesment.Persistence.Services
                 var response = await client.GetAsync(url);
                 response.EnsureSuccessStatusCode();
                 var content = await response.Content.ReadAsStringAsync();
-                return JsonConvert.DeserializeObject<RootObj>(content);
+                return JsonConvert.DeserializeObject<AlertApiModel>(content);
             }
             catch (HttpRequestException ex)
             {

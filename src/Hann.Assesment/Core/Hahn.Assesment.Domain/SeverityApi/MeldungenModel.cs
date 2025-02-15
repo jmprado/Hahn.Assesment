@@ -1,6 +1,8 @@
 ﻿using Newtonsoft.Json;
 
-public partial class Meldungen
+namespace Hahn.Assesment.Domain.SeverityService;
+
+public partial class MeldungenModel
 {
     [JsonProperty("meldungId")]
     public int MeldungId { get; set; }

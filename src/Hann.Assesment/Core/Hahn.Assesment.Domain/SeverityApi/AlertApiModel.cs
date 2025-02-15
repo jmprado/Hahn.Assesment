@@ -2,10 +2,10 @@
 
 namespace Hahn.Assesment.Domain.SeverityService;
 
-public class RootObj
+public class AlertApiModel
 {
     [JsonProperty("highestSeverities")]
-    public required List<HighestSeverity> HighestSeverities { get; set; }
+    public required List<HighestSeverityModel> HighestSeverities { get; set; }
 
     [JsonProperty("start")]
     public int Start { get; set; }
@@ -17,5 +17,5 @@ public class RootObj
     public int WindowsSizeHours { get; set; }
 
     [JsonProperty("meldungen")]
-    public List<Meldungen>? Meldungen { get; set; }
+    public List<MeldungenModel>? Meldungen { get; set; }
 }

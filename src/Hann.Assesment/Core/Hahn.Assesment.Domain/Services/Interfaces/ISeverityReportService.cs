@@ -3,5 +3,6 @@
     public interface ISeverityReportService
     {
         Task<IEnumerable<SeverityReport>> GetReportAsync();
+        Task FetchSeverityDataAsync(SeverityReport severityReport);
     }
 }

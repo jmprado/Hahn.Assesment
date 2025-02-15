@@ -1,4 +1,4 @@
-﻿using Hahn.Assesment.Application.DTOs.SeverityDtos;
+﻿using Hahn.Assesment.Application.DTOs;
 
 namespace Hahn.Assesment.Application.Interfaces;
 

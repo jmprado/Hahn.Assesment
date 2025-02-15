@@ -1,4 +1,6 @@
-﻿namespace Hahn.Assesment.Application.DTOs.SeverityDtos;
+﻿using Hahn.Assesment.Application.DTOs.SeverityDtos;
+
+namespace Hahn.Assesment.Application.DTOs;
 
 public class SeverityCategoryDto
 {
