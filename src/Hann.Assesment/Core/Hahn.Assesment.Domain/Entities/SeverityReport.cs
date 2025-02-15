@@ -2,7 +2,7 @@
 
 namespace Hahn.Assesment.Domain;
 
-public record SeverityReport
+public class SeverityReport
 {
     public int ReportId { get; set; }
     public int Timestamp { get; set; }
@@ -21,6 +21,5 @@ public record SeverityReport
     public int? ImageThumbHeight { get; set; }
 
     public Guid SeverityAlertId { get; set; }
-
     public virtual SeverityAlert? SeverityAlert { get; set; }
 }

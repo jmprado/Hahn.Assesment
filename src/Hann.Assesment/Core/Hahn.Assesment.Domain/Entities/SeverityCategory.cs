@@ -1,6 +1,6 @@
 ﻿namespace Hahn.Assesment.Domain.Entities;
 
-public record SeverityCategory
+public class SeverityCategory
 {
     public string Category { get; set; } = "";
     public string Condition { get; set; } = "";
