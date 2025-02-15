@@ -12,6 +12,7 @@
   </ItemGroup>
 
   <ItemGroup>
+    <ProjectReference Include="..\..\Infrastructure\Hahn.Assesment.Persistence\Hahn.Assesment.Persistence.csproj" />
     <ProjectReference Include="..\Hahn.Assesment.Domain\Hahn.Assesment.Domain.csproj" />
   </ItemGroup>
 

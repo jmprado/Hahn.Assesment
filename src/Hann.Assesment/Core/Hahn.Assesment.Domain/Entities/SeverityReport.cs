@@ -2,7 +2,7 @@
 
 public class SeverityReport
 {
-    public int ReportId { get; set; }
+    public int Id { get; set; }
     public int Timestamp { get; set; }
     public string Lat { get; set; } = "";
     public string Lon { get; set; } = "";

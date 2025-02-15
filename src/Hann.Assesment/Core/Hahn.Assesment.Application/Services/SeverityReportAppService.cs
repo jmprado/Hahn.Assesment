@@ -1,21 +1,23 @@
 ﻿using Hahn.Assesment.Application.DTOs;
 using Hahn.Assesment.Application.Interfaces;
-using Hahn.Assesment.Domain.Services.Interfaces;
+using Hahn.Assesment.Infrastructure.Persistence.Repositories;
+using Hahn.Assesment.Persistence.Services.Interfaces;
 
 namespace Hahn.Assesment.Application.Services;
 
 public class SeverityReportAppService : ISeverityReportAppService
 {
-    private readonly ISeverityReportService _severityReportService;
+    private readonly ISeverityApiService _severityReportApiService;
+    private readonly ISeverityReportRepository _severityReportRepository;
 
-    public SeverityReportAppService(ISeverityReportService severityReportService)
+    public SeverityReportAppService(ISeverityApiService severityReportApiService, ISeverityReportRepository severityReportRepository)
     {
-        _severityReportService = severityReportService;
+        _severityReportApiService = severityReportApiService;
+        _severityReportRepository = severityReportRepository;
     }
 
-    public async Task<IEnumerable<SeverityReportDto>> GetReportAsync()
+    public Task<IEnumerable<SeverityReportDto>> GetReportAsync()
     {
-        var report = await _severityReportService.GetReportAsync();
-        return report.Select(r => new SeverityReportDto(r)).ToList();
+        throw new NotImplementedException();
     }
 }

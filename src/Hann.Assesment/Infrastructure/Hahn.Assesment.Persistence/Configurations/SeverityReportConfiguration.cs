@@ -1,4 +1,4 @@
-﻿using Hahn.Assesment.Domain;
+﻿using Hahn.Assesment.Domain.Entities;
 using Microsoft.EntityFrameworkCore;
 using Microsoft.EntityFrameworkCore.Metadata.Builders;
 
@@ -8,7 +8,7 @@ public class SeverityReportConfiguration : IEntityTypeConfiguration<SeverityRepo
 {
     public void Configure(EntityTypeBuilder<SeverityReport> builder)
     {
-        builder.HasKey(sr => sr.ReportId);
+        builder.HasKey(sr => sr.Id);
 
         builder.Property(sr => sr.Timestamp)
             .IsRequired();

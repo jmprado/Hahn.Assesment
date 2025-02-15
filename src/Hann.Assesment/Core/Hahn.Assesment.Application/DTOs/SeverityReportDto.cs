@@ -1,4 +1,4 @@
-﻿using Hahn.Assesment.Domain;
+﻿using Hahn.Assesment.Domain.Entities;
 
 namespace Hahn.Assesment.Application.DTOs;
 
@@ -23,7 +23,7 @@ public class SeverityReportDto
 
     public SeverityReportDto(SeverityReport report)
     {
-        ReportId = report.ReportId;
+        ReportId = report.Id;
         Timestamp = report.Timestamp;
         Lat = report.Lat;
         Lon = report.Lon;

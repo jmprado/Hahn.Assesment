@@ -8,5 +8,6 @@ public class SeverityAlert
     public int End { get; set; }
     public int WindowsSizeHours { get; set; }
 
-    public virtual IEnumerable<SeverityReport>? SeverityReports { get; set; }
+    public virtual IEnumerable<SeverityReport>? SeverityReport { get; set; }
+    public virtual IEnumerable<SeverityCategory>? SeverityCategories { get; set; }
 }
