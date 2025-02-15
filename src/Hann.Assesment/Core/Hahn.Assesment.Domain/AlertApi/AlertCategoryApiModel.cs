@@ -1,8 +1,8 @@
 ﻿using Newtonsoft.Json;
 
-namespace Hahn.Assesment.Domain.SeverityService;
+namespace Hahn.Assesment.Domain.AlertApi;
 
-public class HighestSeverity
+public class AlertCategoryApiModel
 {
     [JsonProperty("category")]
     public required string Category { get; set; }

@@ -1,11 +1,11 @@
 ﻿using Newtonsoft.Json;
 
-namespace Hahn.Assesment.Domain.SeverityService;
+namespace Hahn.Assesment.Domain.AlertApi;
 
-public class RootObj
+public class AlertApiModel
 {
     [JsonProperty("highestSeverities")]
-    public required List<HighestSeverity> HighestSeverities { get; set; }
+    public required List<AlertCategoryApiModel> AlertCategories { get; set; }
 
     [JsonProperty("start")]
     public int Start { get; set; }
@@ -17,5 +17,5 @@ public class RootObj
     public int WindowsSizeHours { get; set; }
 
     [JsonProperty("meldungen")]
-    public List<Meldungen>? Meldungen { get; set; }
+    public List<AlertReportApiModel>? AlertReports { get; set; }
 }

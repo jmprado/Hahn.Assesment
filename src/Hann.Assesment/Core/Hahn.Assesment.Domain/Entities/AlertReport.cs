@@ -1,10 +1,8 @@
-﻿using Hahn.Assesment.Domain.Entities;
+﻿namespace Hahn.Assesment.Domain.Entities;
 
-namespace Hahn.Assesment.Domain;
-
-public class SeverityReport
+public class AlertReport
 {
-    public int ReportId { get; set; }
+    public int Id { get; set; }
     public int Timestamp { get; set; }
     public string Lat { get; set; } = "";
     public string Lon { get; set; } = "";
@@ -21,5 +19,5 @@ public class SeverityReport
     public int? ImageThumbHeight { get; set; }
 
     public Guid SeverityAlertId { get; set; }
-    public virtual SeverityAlert? SeverityAlert { get; set; }
+    public virtual Alerts? SeverityAlert { get; set; }
 }

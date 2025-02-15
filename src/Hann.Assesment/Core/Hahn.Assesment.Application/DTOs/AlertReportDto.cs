@@ -1,8 +1,8 @@
-﻿using Hahn.Assesment.Domain;
+﻿using Hahn.Assesment.Domain.Entities;
 
-namespace Hahn.Assesment.Application.DTOs.SeverityDtos;
+namespace Hahn.Assesment.Application.DTOs;
 
-public class SeverityReportDto
+public class AlertReportDto
 {
     public int ReportId { get; set; }
     public int Timestamp { get; set; }
@@ -21,9 +21,9 @@ public class SeverityReportDto
     public int? ImageThumbHeight { get; set; }
     public Guid SeverityAlertId { get; set; }
 
-    public SeverityReportDto(SeverityReport report)
+    public AlertReportDto(AlertReport report)
     {
-        ReportId = report.ReportId;
+        ReportId = report.Id;
         Timestamp = report.Timestamp;
         Lat = report.Lat;
         Lon = report.Lon;
