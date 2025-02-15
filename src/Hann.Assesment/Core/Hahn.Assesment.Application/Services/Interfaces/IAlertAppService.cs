@@ -2,8 +2,8 @@
 
 namespace Hahn.Assesment.Domain.Services.Interfaces;
 
-public interface ISeverityReportAppService
+public interface IAlertAppService
 {
-    Task<IEnumerable<SeverityAlertDto>> GetReportAsync();
+    Task<IEnumerable<AlertDto>> GetAlertAsync();
     Task LoadAlertDataAsync();
 }

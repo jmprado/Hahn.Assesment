@@ -1,6 +1,6 @@
 ﻿namespace Hahn.Assesment.Domain.Entities;
 
-public class SeverityReport
+public class AlertReport
 {
     public int Id { get; set; }
     public int Timestamp { get; set; }
@@ -19,5 +19,5 @@ public class SeverityReport
     public int? ImageThumbHeight { get; set; }
 
     public Guid SeverityAlertId { get; set; }
-    public virtual SeverityAlert? SeverityAlert { get; set; }
+    public virtual Alerts? SeverityAlert { get; set; }
 }

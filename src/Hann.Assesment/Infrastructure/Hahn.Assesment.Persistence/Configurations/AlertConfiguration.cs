@@ -4,9 +4,9 @@ using Microsoft.EntityFrameworkCore.Metadata.Builders;
 
 namespace Hahn.Assesment.Infrastructure.Configurations;
 
-public class WeatherSeverityAlertConfiguration : IEntityTypeConfiguration<SeverityAlert>
+public class WeatherSeverityAlertConfiguration : IEntityTypeConfiguration<Alerts>
 {
-    public void Configure(EntityTypeBuilder<SeverityAlert> builder)
+    public void Configure(EntityTypeBuilder<Alerts> builder)
     {
         builder.HasKey(w => w.Id);
 

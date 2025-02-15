@@ -2,7 +2,7 @@
 
 namespace Hahn.Assesment.Application.DTOs;
 
-public class SeverityReportDto
+public class AlertReportDto
 {
     public int ReportId { get; set; }
     public int Timestamp { get; set; }
@@ -21,7 +21,7 @@ public class SeverityReportDto
     public int? ImageThumbHeight { get; set; }
     public Guid SeverityAlertId { get; set; }
 
-    public SeverityReportDto(SeverityReport report)
+    public AlertReportDto(AlertReport report)
     {
         ReportId = report.Id;
         Timestamp = report.Timestamp;

@@ -1,29 +1,29 @@
 ﻿using AutoMapper;
+using Hahn.Assesment.Domain.AlertApi;
 using Hahn.Assesment.Domain.Entities;
-using Hahn.Assesment.Domain.SeverityService;
 
 namespace Hahn.Assesment.Application.Mapping;
 
-public class WeatherApiMapping : Profile
+public class AlertApiProfile : Profile
 {
-    public WeatherApiMapping()
+    public AlertApiProfile()
     {
-        CreateMap<MeldungenModel, SeverityReport>()
+        CreateMap<AlertReportApiModel, AlertReport>()
             .ForMember(dest => dest.Id, opt => opt.MapFrom(src => src.MeldungId))
             .ForMember(dest => dest.ExtraAttribute, opt => opt.MapFrom(src => src.ZusatzAttribute))
             .ForMember(dest => dest.SeverityAlertId, opt => opt.Ignore())
             .ForMember(dest => dest.SeverityAlert, opt => opt.Ignore());
 
-        CreateMap<HighestSeverityModel, SeverityCategory>()
+        CreateMap<AlertCategoryApiModel, AlertCategory>()
             .ForMember(dest => dest.Category, opt => opt.MapFrom(src => src.Category))
             .ForMember(dest => dest.Condition, opt => opt.MapFrom(src => src.Auspraegung))
             .ForMember(dest => dest.SeverityAlertId, opt => opt.Ignore())
             .ForMember(dest => dest.SeverityAlert, opt => opt.Ignore());
 
-        CreateMap<AlertApiModel, SeverityAlert>()
+        CreateMap<AlertApiModel, Alerts>()
             .ForMember(dest => dest.Id, opt => opt.Ignore())
             .ForMember(dest => dest.UpdatedAt, opt => opt.MapFrom(src => DateTime.Now))
-            .ForMember(dest => dest.SeverityReport, opt => opt.MapFrom(src => src.Meldungen))
-            .ForMember(dest => dest.SeverityCategories, opt => opt.MapFrom(src => src.HighestSeverities));
+            .ForMember(dest => dest.SeverityReport, opt => opt.MapFrom(src => src.AlertReports))
+            .ForMember(dest => dest.SeverityCategories, opt => opt.MapFrom(src => src.AlertCategories));
     }
 }

@@ -4,9 +4,9 @@ using Microsoft.EntityFrameworkCore.Metadata.Builders;
 
 namespace Hahn.Assesment.Infrastructure.Configurations
 {
-    public class SeverityCategoryConfiguration : IEntityTypeConfiguration<SeverityCategory>
+    public class AlertCategoryConfiguration : IEntityTypeConfiguration<AlertCategory>
     {
-        public void Configure(EntityTypeBuilder<SeverityCategory> builder)
+        public void Configure(EntityTypeBuilder<AlertCategory> builder)
         {
             builder.HasKey(sc => sc.Id);
 

@@ -4,9 +4,9 @@ using Microsoft.EntityFrameworkCore.Metadata.Builders;
 
 namespace Hahn.Assesment.Infrastructure.Configurations;
 
-public class SeverityReportConfiguration : IEntityTypeConfiguration<SeverityReport>
+public class AlertReportConfiguration : IEntityTypeConfiguration<AlertReport>
 {
-    public void Configure(EntityTypeBuilder<SeverityReport> builder)
+    public void Configure(EntityTypeBuilder<AlertReport> builder)
     {
         builder.HasKey(sr => sr.Id);
 

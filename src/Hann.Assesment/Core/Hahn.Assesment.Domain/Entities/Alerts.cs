@@ -1,6 +1,6 @@
 ﻿namespace Hahn.Assesment.Domain.Entities;
 
-public class SeverityAlert
+public class Alerts
 {
     public Guid Id { get; set; }
     public DateTime UpdatedAt { get; set; }
@@ -8,6 +8,6 @@ public class SeverityAlert
     public int End { get; set; }
     public int WindowsSizeHours { get; set; }
 
-    public virtual IEnumerable<SeverityReport>? SeverityReport { get; set; }
-    public virtual IEnumerable<SeverityCategory>? SeverityCategories { get; set; }
+    public virtual IEnumerable<AlertReport>? SeverityReport { get; set; }
+    public virtual IEnumerable<AlertCategory>? SeverityCategories { get; set; }
 }

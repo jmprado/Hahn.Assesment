@@ -16,8 +16,4 @@
     <ProjectReference Include="..\Hahn.Assesment.Domain\Hahn.Assesment.Domain.csproj" />
   </ItemGroup>
 
-  <ItemGroup>
-    <Folder Include="DTOs\SeverityDtos\" />
-  </ItemGroup>
-
 </Project>

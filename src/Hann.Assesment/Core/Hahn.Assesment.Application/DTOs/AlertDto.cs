@@ -1,6 +1,6 @@
 ﻿namespace Hahn.Assesment.Application.DTOs.SeverityDtos;
 
-public class SeverityAlertDto
+public class AlertDto
 {
     public Guid Id { get; set; } = new Guid();
     public DateTime UpdatedAt { get; set; }
@@ -8,6 +8,6 @@ public class SeverityAlertDto
     public long End { get; set; }
     public int WindowsSizeHours { get; set; }
 
-    public virtual IEnumerable<SeverityReportDto>? SeverityReports { get; set; }
-    public virtual IEnumerable<SeverityCategoryDto>? SeverityCategories { get; set; }
+    public virtual IEnumerable<AlertReportDto>? SeverityReports { get; set; }
+    public virtual IEnumerable<AlertCategoryDto>? SeverityCategories { get; set; }
 }

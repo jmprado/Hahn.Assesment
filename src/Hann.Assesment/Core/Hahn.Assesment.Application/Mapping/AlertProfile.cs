@@ -5,13 +5,13 @@ using Hahn.Assesment.Domain.Entities;
 
 namespace Hahn.Assesment.Application.Mapping
 {
-    public class SeverityAlertProfile : Profile
+    public class AlertProfile : Profile
     {
-        public SeverityAlertProfile()
+        public AlertProfile()
         {
-            CreateMap<SeverityReport, SeverityReportDto>();
-            CreateMap<SeverityCategory, SeverityCategoryDto>();
-            CreateMap<SeverityAlert, SeverityAlertDto>()
+            CreateMap<AlertReport, AlertReportDto>();
+            CreateMap<AlertCategory, AlertCategoryDto>();
+            CreateMap<Alerts, AlertDto>()
                 .ForMember(dest => dest.SeverityReports, opt => opt.MapFrom(src => src.SeverityReport))
                 .ForMember(dest => dest.SeverityCategories, opt => opt.MapFrom(src => src.SeverityReport));
         }

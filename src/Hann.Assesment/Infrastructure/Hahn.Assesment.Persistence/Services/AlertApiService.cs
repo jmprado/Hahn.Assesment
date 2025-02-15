@@ -1,20 +1,20 @@
-﻿using Hahn.Assesment.Domain.SeverityService;
+﻿using Hahn.Assesment.Domain.AlertApi;
 using Hahn.Assesment.Persistence.Services.Interfaces;
 using Microsoft.Extensions.Configuration;
 using Newtonsoft.Json;
 
 namespace Hahn.Assesment.Persistence.Services
 {
-    public class SeverityApiService : ISeverityApiService
+    public class AlertApiService : IAlertApiService
     {
         private readonly IConfiguration _configuration;
 
-        public SeverityApiService(IConfiguration configuration)
+        public AlertApiService(IConfiguration configuration)
         {
             _configuration = configuration;
         }
 
-        public async Task<AlertApiModel?> GetSeverityDataAsync()
+        public async Task<AlertApiModel?> GetAlertDataAsync()
         {
             try
             {

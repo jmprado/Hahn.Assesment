@@ -16,9 +16,9 @@ namespace Hahn.Assesment.Infrastructure
             _configuration = configuration;
         }
 
-        public DbSet<SeverityAlert> WeatherSeverityAlerts { get; set; }
-        public DbSet<SeverityCategory> SeverityCategories { get; set; }
-        public DbSet<SeverityReport> SeverityReports { get; set; }
+        public DbSet<Alerts> WeatherSeverityAlerts { get; set; }
+        public DbSet<AlertCategory> SeverityCategories { get; set; }
+        public DbSet<AlertReport> SeverityReports { get; set; }
 
         protected override void OnConfiguring(DbContextOptionsBuilder optionsBuilder)
         {
@@ -33,8 +33,8 @@ namespace Hahn.Assesment.Infrastructure
         protected override void OnModelCreating(ModelBuilder modelBuilder)
         {
             modelBuilder.ApplyConfiguration(new WeatherSeverityAlertConfiguration());
-            modelBuilder.ApplyConfiguration(new SeverityCategoryConfiguration());
-            modelBuilder.ApplyConfiguration(new SeverityReportConfiguration());
+            modelBuilder.ApplyConfiguration(new AlertCategoryConfiguration());
+            modelBuilder.ApplyConfiguration(new AlertReportConfiguration());
             base.OnModelCreating(modelBuilder);
         }
     }
