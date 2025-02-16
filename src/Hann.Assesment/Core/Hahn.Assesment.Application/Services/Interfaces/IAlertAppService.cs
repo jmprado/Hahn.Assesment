@@ -1,9 +1,10 @@
 ﻿using Hahn.Assesment.Application.DTOs.SeverityDtos;
 
-namespace Hahn.Assesment.Domain.Services.Interfaces;
-
-public interface IAlertAppService
+namespace Hahn.Assesment.Application.Services.Interfaces
 {
-    Task<IEnumerable<AlertDto>> GetAlertAsync();
-    Task LoadAlertDataAsync();
+    public interface IAlertAppService
+    {
+        Task<AlertDto> GetAlertAsync();
+        Task LoadAlertDataAsync();
+    }
 }

@@ -8,5 +8,5 @@ public class AlertCategory
 
     public Guid AlertId { get; set; }
 
-    public virtual Alert? Alerts { get; set; }
+    public virtual AlertEntity? Alerts { get; set; }
 }

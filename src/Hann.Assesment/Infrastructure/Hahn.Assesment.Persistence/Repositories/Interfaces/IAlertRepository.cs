@@ -1,11 +1,11 @@
 ﻿using Hahn.Assesment.Domain.Entities;
 
-namespace Hahn.Assesment.Infrastructure.Persistence.Repositories
+namespace Hahn.Assesment.Persistence.Repositories.Interfaces
 {
     public interface IAlertRepository
     {
-        Task<Alert> GetAlertAsync();
+        Task<AlertEntity> GetAlertAsync();
         Task<AlertReport> GetReportByCategoryAsync(string category);
-        Task SaveReportAsync(Alert alert);
+        Task SaveAlertAsync(AlertEntity alert);
     }
 }
