@@ -1,6 +1,6 @@
 ﻿namespace Hahn.Assesment.Domain.Entities;
 
-public class Alert
+public class AlertEntity
 {
     public Guid Id { get; set; }
     public DateTime UpdatedAt { get; set; }

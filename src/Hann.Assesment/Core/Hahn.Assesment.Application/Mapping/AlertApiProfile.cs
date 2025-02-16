@@ -20,7 +20,7 @@ public class AlertApiProfile : Profile
             .ForMember(dest => dest.AlertId, opt => opt.Ignore())
             .ForMember(dest => dest.Alerts, opt => opt.Ignore());
 
-        CreateMap<AlertApiModel, Alert>()
+        CreateMap<AlertApiModel, AlertEntity>()
             .ForMember(dest => dest.Id, opt => opt.Ignore())
             .ForMember(dest => dest.UpdatedAt, opt => opt.MapFrom(src => DateTime.Now))
             .ForMember(dest => dest.AlertReports, opt => opt.MapFrom(src => src.AlertReports))

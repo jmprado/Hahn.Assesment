@@ -15,7 +15,7 @@ namespace Hahn.Assesment.Infrastructure
             _configuration = configuration;
         }
 
-        public DbSet<Alert> Alerts { get; set; }
+        public DbSet<AlertEntity> Alerts { get; set; }
         public DbSet<AlertCategory> AlertCategories { get; set; }
         public DbSet<AlertReport> AlertyReports { get; set; }
 
