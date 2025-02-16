@@ -28,7 +28,6 @@ public class AlertReportConfiguration : IEntityTypeConfiguration<AlertReport>
             .HasMaxLength(50);
 
         builder.Property(w => w.Place)
-            .IsRequired()
             .HasMaxLength(200);
 
         builder.Property(w => w.Category)

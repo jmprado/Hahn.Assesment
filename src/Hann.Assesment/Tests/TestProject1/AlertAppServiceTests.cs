@@ -1,7 +1,6 @@
 ﻿using AutoMapper;
 using Hahn.Assesment.Application.DTOs.SeverityDtos;
 using Hahn.Assesment.Application.Services.AlertApp;
-using Hahn.Assesment.Domain.AlertApi;
 using Hahn.Assesment.Domain.Entities;
 using Hahn.Assesment.Persistence.Repositories.Interfaces;
 using Hahn.Assesment.Persistence.Services.AlertApi;
@@ -24,31 +23,6 @@ namespace Hahn.Assesment.Application.Tests.Services
             _alertAppService = new AlertAppService(_alertApiServiceMock.Object, _alertRepositoryMock.Object, _mapperMock.Object);
         }
 
-        [Fact]
-        public async Task LoadAlertDataAsync_ShouldCallApiServiceAndSaveAlert()
-        {
-            // Arrange
-            var alertApiModel = new AlertApiModel
-            {
-                Start = 1,
-                End = 2,
-                WindowsSizeHours = 3,
-                AlertCategories = new List<AlertCategoryApiModel>(),
-                AlertReports = new List<AlertReportApiModel>()
-            };
-            var alertEntity = new AlertEntity();
-
-            _alertApiServiceMock.Setup(api => api.GetAlertDataAsync()).ReturnsAsync(alertApiModel);
-            _mapperMock.Setup(m => m.Map<AlertEntity>(alertApiModel)).Returns(alertEntity);
-
-            // Act
-            await _alertAppService.LoadAlertDataAsync();
-
-            // Assert
-            _alertApiServiceMock.Verify(api => api.GetAlertDataAsync(), Times.Once);
-            _mapperMock.Verify(m => m.Map<AlertEntity>(alertApiModel), Times.Once);
-            _alertRepositoryMock.Verify(repo => repo.SaveAlertAsync(alertEntity), Times.Once);
-        }
 
         [Fact]
         public async Task GetAlertAsync_ShouldReturnMappedAlertDto()

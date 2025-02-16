@@ -17,7 +17,7 @@ public partial class AlertReportApiModel
     public required string Lon { get; set; }
 
     [JsonProperty("place")]
-    public required string Place { get; set; }
+    public string? Place { get; set; }
 
     [JsonProperty("category")]
     public required string Category { get; set; }

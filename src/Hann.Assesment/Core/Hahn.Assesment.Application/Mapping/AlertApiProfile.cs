@@ -27,8 +27,8 @@ public class AlertApiProfile : Profile
             .ForMember(dest => dest.UpdatedAt, opt => opt.MapFrom(src => DateTime.Now))
             .ForMember(dest => dest.Start, opt => opt.MapFrom(src => GetDateTimeFromTimestamp(src.Start)))
             .ForMember(dest => dest.End, opt => opt.MapFrom(src => GetDateTimeFromTimestamp(src.End)))
-            .ForMember(dest => dest.AlertReports, opt => opt.MapFrom(src => src.AlertReports))
-            .ForMember(dest => dest.AlertCategories, opt => opt.MapFrom(src => src.AlertCategories));
+            .ForMember(dest => dest.AlertReports, opt => opt.Ignore())
+            .ForMember(dest => dest.AlertCategories, opt => opt.Ignore());
     }
 
     private DateTime GetDateTimeFromTimestamp(long timestamp)

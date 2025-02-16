@@ -9,7 +9,7 @@ public class AlertReportDto
     public DateTime AlertDate { get; set; }
     public string Lat { get; set; }
     public string Lon { get; set; }
-    public string Place { get; set; }
+    public string? Place { get; set; }
     public string Category { get; set; }
     public string Condition { get; set; }
     public List<string>? ExtraAttribute { get; set; }
