@@ -1,6 +1,6 @@
-﻿using Hahn.Assesment.Application.Jobs;
-using Hahn.Assesment.Application.Mapping;
+﻿using Hahn.Assesment.Application.Mapping;
 using Hahn.Assesment.Application.Services.AlertApp;
+using Hahn.Assesment.Appliction.Services.Hangfire;
 using Hahn.Assesment.Infrastructure;
 using Hahn.Assesment.Infrastructure.Persistence.Repositories;
 using Hahn.Assesment.Persistence.Repositories.Interfaces;
@@ -21,7 +21,7 @@ public static class ServiceExtensions
         services.AddScoped<IAlertRepository, AlertRepository>();
         services.AddScoped<IAlertApiService, AlertApiService>();
         services.AddScoped<IAlertAppService, AlertAppService>();
-        services.AddScoped<ILoadAlertJob, LoadAlertJob>();
+        services.AddScoped<IHangfireJobs, HangfireJobs>();
 
         services.AddAutoMapper(typeof(AlertProfile), typeof(AlertApiProfile));
     }

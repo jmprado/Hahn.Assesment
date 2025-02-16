@@ -1,4 +1,5 @@
-﻿using Hahn.Assesment.Domain.Entities;
+﻿using Hahn.Assesment.Domain.AlertApi;
+using Hahn.Assesment.Domain.Entities;
 
 namespace Hahn.Assesment.Persistence.Repositories.Interfaces
 {
@@ -6,7 +7,6 @@ namespace Hahn.Assesment.Persistence.Repositories.Interfaces
     {
         Task<AlertEntity> GetAlertAsync();
         Task<AlertReport> GetReportByCategoryAsync(string category);
-        Task SaveAlertAsync(AlertEntity alert);
-        Task SaveAlertReport(AlertReport alertReport);
+        Task SaveAlertAsync(AlertApiModel alertApiModel);
     }
 }

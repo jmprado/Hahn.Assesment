@@ -1,7 +1,10 @@
-using Hahn.Assesment.Application.Jobs;
 using Hahn.Assesment.Application.Middleware;
 using Hahn.Assesment.Appliction.Services.Hangfire;
+using Hahn.Assesment.Infrastructure;
 using Hangfire;
+using Hangfire.SqlServer;
+using Microsoft.Data.SqlClient;
+using Microsoft.EntityFrameworkCore;
 
 var builder = WebApplication.CreateBuilder(args);
 
@@ -13,16 +16,20 @@ builder.Services.AddControllersWithViews();
 // <see cref="Hahn.Assesment.Application.Middleware.ServiceExtensions"/>
 builder.Services.ConfigureApplication(builder.Configuration);
 
-// Create Hangfire database.
-var hangfireDb = new HangfireDb(builder.Configuration);
-hangfireDb.CreateDatabase(builder.Configuration);
+var _hangfireDbName = builder.Configuration.GetValue<string>("HangfireDbName");
+if (_hangfireDbName == null)
+    throw new ArgumentException("HangfireDbName value not found in appsettings.json.");
 
-// Add Hangfire services.
-builder.Services.AddHangfire(configuration => configuration
-    .SetDataCompatibilityLevel(CompatibilityLevel.Version_180)
-    .UseSimpleAssemblyNameTypeSerializer()
-    .UseRecommendedSerializerSettings()
-    .UseSqlServerStorage(builder.Configuration.GetConnectionString("Hangfire")));
+CreateHangfireDb();
+
+builder.Services.AddHangfire((serviceProvider, config) =>
+{
+    ApplyAutomaticDatabaseMigration(serviceProvider);
+    config.UseSqlServerStorage(builder.Configuration.GetConnectionString(_hangfireDbName));
+    config.SetDataCompatibilityLevel(CompatibilityLevel.Version_180);
+    config.UseSimpleAssemblyNameTypeSerializer();
+    config.UseRecommendedSerializerSettings();
+});
 
 builder.Services.AddHangfireServer();
 
@@ -49,8 +56,36 @@ app.MapHangfireDashboard();
 using (var scope = app.Services.CreateScope())
 {
     var services = scope.ServiceProvider;
-    var loadAlertJob = services.GetService<ILoadAlertJob>();
+    var loadAlertJob = services.GetService<IHangfireJobs>();
     loadAlertJob?.AddRecurringJob();
 }
 
 app.Run();
+
+
+
+void ApplyAutomaticDatabaseMigration(IServiceProvider serviceProvider)
+{
+    JobStorage.Current = new SqlServerStorage(builder.Configuration.GetConnectionString(_hangfireDbName));
+    var context = serviceProvider.CreateScope().ServiceProvider.GetRequiredService<AppDbContext>();
+    context.Database.Migrate();
+    context.Database.EnsureCreated();
+}
+
+
+
+void CreateHangfireDb()
+{
+    using (var conn = new SqlConnection(string.Format(builder.Configuration.GetConnectionString($"{_hangfireDbName}InitDb")!)))
+    {
+        conn.Open();
+
+        using (var command = new SqlCommand(string.Format(
+            @"IF NOT EXISTS (SELECT name FROM sys.databases WHERE name = N'{0}') 
+                                    create database [{0}];
+                      ", _hangfireDbName), conn))
+        {
+            command.ExecuteNonQuery();
+        }
+    }
+}

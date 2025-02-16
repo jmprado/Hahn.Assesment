@@ -11,9 +11,7 @@ namespace Hahn.Assesment.Application.Mapping
         {
             CreateMap<AlertReport, AlertReportDto>();
             CreateMap<AlertCategory, AlertCategoryDto>();
-            CreateMap<AlertEntity, AlertDto>()
-                .ForMember(dest => dest.SeverityReports, opt => opt.MapFrom(src => src.AlertReports))
-                .ForMember(dest => dest.SeverityCategories, opt => opt.MapFrom(src => src.AlertReports));
+            CreateMap<AlertEntity, AlertDto>();
         }
     }
 }
