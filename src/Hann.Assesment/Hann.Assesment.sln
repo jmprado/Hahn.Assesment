@@ -21,6 +21,8 @@ Project("{FAE04EC0-301F-11D3-BF4B-00C04F79EFBC}") = "Hahn.Assesment.Tests", "Tes
 EndProject
 Project("{FAE04EC0-301F-11D3-BF4B-00C04F79EFBC}") = "Hahn.Assesment.WebAPI", "Presentation\Hahn.Assesment.WebAPI\Hahn.Assesment.WebAPI.csproj", "{8669EABA-050A-4D40-8CCE-D97A18C47924}"
 EndProject
+Project("{FAE04EC0-301F-11D3-BF4B-00C04F79EFBC}") = "Hann.Assesment.WorkerService", "Presentation\Hann.Assesment.WorkerService\Hann.Assesment.WorkerService.csproj", "{AD6F82FA-E34C-4E4C-BF28-0ABB5630EEE9}"
+EndProject
 Global
 	GlobalSection(SolutionConfigurationPlatforms) = preSolution
 		Debug|Any CPU = Debug|Any CPU
@@ -47,6 +49,10 @@ Global
 		{8669EABA-050A-4D40-8CCE-D97A18C47924}.Debug|Any CPU.Build.0 = Debug|Any CPU
 		{8669EABA-050A-4D40-8CCE-D97A18C47924}.Release|Any CPU.ActiveCfg = Release|Any CPU
 		{8669EABA-050A-4D40-8CCE-D97A18C47924}.Release|Any CPU.Build.0 = Release|Any CPU
+		{AD6F82FA-E34C-4E4C-BF28-0ABB5630EEE9}.Debug|Any CPU.ActiveCfg = Debug|Any CPU
+		{AD6F82FA-E34C-4E4C-BF28-0ABB5630EEE9}.Debug|Any CPU.Build.0 = Debug|Any CPU
+		{AD6F82FA-E34C-4E4C-BF28-0ABB5630EEE9}.Release|Any CPU.ActiveCfg = Release|Any CPU
+		{AD6F82FA-E34C-4E4C-BF28-0ABB5630EEE9}.Release|Any CPU.Build.0 = Release|Any CPU
 	EndGlobalSection
 	GlobalSection(SolutionProperties) = preSolution
 		HideSolutionNode = FALSE
@@ -57,5 +63,6 @@ Global
 		{73046F38-8EA7-4593-BAFE-BB89A256AF9A} = {76097951-86C1-43F4-8489-86CFEDBD6390}
 		{AB517144-B284-4952-9E03-4E7EC2F955C8} = {1BA3FAC2-C34E-471D-94DA-3B0CA189279F}
 		{8669EABA-050A-4D40-8CCE-D97A18C47924} = {71DB28C8-9513-45E1-AFCB-43D193E548D7}
+		{AD6F82FA-E34C-4E4C-BF28-0ABB5630EEE9} = {71DB28C8-9513-45E1-AFCB-43D193E548D7}
 	EndGlobalSection
 EndGlobal

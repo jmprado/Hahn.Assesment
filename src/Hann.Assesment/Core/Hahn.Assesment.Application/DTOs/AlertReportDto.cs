@@ -4,8 +4,9 @@ namespace Hahn.Assesment.Application.DTOs;
 
 public class AlertReportDto
 {
+    public Guid Id { get; set; }
     public int ReportId { get; set; }
-    public int Timestamp { get; set; }
+    public DateTime AlertDate { get; set; }
     public string Lat { get; set; }
     public string Lon { get; set; }
     public string Place { get; set; }
@@ -23,8 +24,9 @@ public class AlertReportDto
 
     public AlertReportDto(AlertReport report)
     {
-        ReportId = report.Id;
-        Timestamp = report.Timestamp;
+        Id = report.Id;
+        ReportId = report.ReportId;
+        AlertDate = report.AlertDate;
         Lat = report.Lat;
         Lon = report.Lon;
         Place = report.Place;

@@ -1,10 +1,10 @@
 ﻿using AutoMapper;
 using Hahn.Assesment.Application.DTOs.SeverityDtos;
-using Hahn.Assesment.Application.Services;
+using Hahn.Assesment.Application.Services.AlertApp;
 using Hahn.Assesment.Domain.AlertApi;
 using Hahn.Assesment.Domain.Entities;
 using Hahn.Assesment.Persistence.Repositories.Interfaces;
-using Hahn.Assesment.Persistence.Services.Interfaces;
+using Hahn.Assesment.Persistence.Services.AlertApi;
 using Moq;
 
 namespace Hahn.Assesment.Application.Tests.Services

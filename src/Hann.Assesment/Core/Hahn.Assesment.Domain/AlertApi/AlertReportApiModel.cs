@@ -8,7 +8,7 @@ public partial class AlertReportApiModel
     public int MeldungId { get; set; }
 
     [JsonProperty("timestamp")]
-    public int Timestamp { get; set; }
+    public long Timestamp { get; set; }
 
     [JsonProperty("lat")]
     public required string Lat { get; set; }

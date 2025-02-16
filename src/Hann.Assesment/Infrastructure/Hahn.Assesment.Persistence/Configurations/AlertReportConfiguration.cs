@@ -8,50 +8,56 @@ public class AlertReportConfiguration : IEntityTypeConfiguration<AlertReport>
 {
     public void Configure(EntityTypeBuilder<AlertReport> builder)
     {
-        builder.HasKey(sr => sr.Id);
+        builder.Property(w => w.Id)
+            .ValueGeneratedOnAdd();
 
-        builder.Property(sr => sr.Timestamp)
+        builder.HasKey(w => w.Id);
+
+        builder.Property(w => w.AlertId)
             .IsRequired();
 
-        builder.Property(sr => sr.Lat)
+        builder.Property(w => w.AlertDate)
+            .IsRequired();
+
+        builder.Property(w => w.Lat)
             .IsRequired()
             .HasMaxLength(50);
 
-        builder.Property(sr => sr.Lon)
+        builder.Property(w => w.Lon)
             .IsRequired()
             .HasMaxLength(50);
 
-        builder.Property(sr => sr.Place)
+        builder.Property(w => w.Place)
             .IsRequired()
             .HasMaxLength(200);
 
-        builder.Property(sr => sr.Category)
+        builder.Property(w => w.Category)
             .IsRequired()
             .HasMaxLength(100);
 
-        builder.Property(sr => sr.Condition)
+        builder.Property(w => w.Condition)
             .IsRequired()
             .HasMaxLength(200);
 
-        builder.Property(sr => sr.LikeCount)
+        builder.Property(w => w.LikeCount)
             .IsRequired();
 
-        builder.Property(sr => sr.ImageUrl)
+        builder.Property(w => w.ImageUrl)
             .HasMaxLength(500);
 
-        builder.Property(sr => sr.ImageThumbUrl)
+        builder.Property(w => w.ImageThumbUrl)
             .HasMaxLength(500);
 
-        builder.Property(sr => sr.ImageMediumUrl)
+        builder.Property(w => w.ImageMediumUrl)
             .HasMaxLength(500);
 
-        builder.Property(sr => sr.BlurHash)
+        builder.Property(w => w.BlurHash)
             .HasMaxLength(100);
 
-        builder.Property(sr => sr.AlertId)
+        builder.Property(w => w.AlertId)
             .IsRequired();
 
-        builder.HasIndex(sr => sr.Category)
+        builder.HasIndex(w => w.Category)
             .HasDatabaseName("IX_SeverityReport_Category");
     }
 }

@@ -25,28 +25,34 @@ namespace Hahn.Assesment.Infrastructure.Persistence.Repositories
                 throw new ArgumentNullException(nameof(alert));
             }
 
-            using var transaction = await _context.Database.BeginTransactionAsync();
+            // Clear Alert the table before inserting new data
+            await _context.Alerts.ExecuteDeleteAsync();
+            await _context.SaveChangesAsync();
+
             _context.Alerts.Add(alert);
+            await _context.SaveChangesAsync();
 
             // Set the FK AlertId for AlertCategories
             alert.AlertCategories?.All((a) => { a.AlertId = alert.Id; return true; });
-
             if (alert.AlertCategories != null)
             {
-                _context.AlertCategories.AddRange(alert.AlertCategories);
+                foreach (var category in alert.AlertCategories)
+                    _context.AlertCategories.Add(category);
+
+                await _context.SaveChangesAsync();
+                // await _context.AlertCategories.AddRangeAsync(alert.AlertCategories.ToArray());
             }
 
             // Set the FK AlertId for AlertReports
             alert.AlertReports?.All((a) => { a.AlertId = alert.Id; return true; });
-
             if (alert.AlertReports != null)
             {
-                _context.AlertyReports.AddRange(alert.AlertReports);
+                foreach (var report in alert.AlertReports)
+                    _context.AlertReports.Add(report);
+
+                await _context.SaveChangesAsync();
+                //await _context.AlertReports.AddRangeAsync(alert.AlertReports.ToArray());
             }
-
-            _context.SaveChanges();
-
-            transaction.Commit();
         }
 
         public Task<AlertEntity> GetAlertAsync()
@@ -57,6 +63,12 @@ namespace Hahn.Assesment.Infrastructure.Persistence.Repositories
         public Task<AlertReport> GetReportByCategoryAsync(string category)
         {
             throw new NotImplementedException();
+        }
+
+        public async Task SaveAlertReport(AlertReport alertReport)
+        {
+            _context.AlertReports.Add(alertReport);
+            await _context.SaveChangesAsync();
         }
     }
 }

@@ -1,5 +1,5 @@
+using Hahn.Assesment.Application.Middleware;
 using Hahn.Assesment.Infrastructure;
-using Hahn.Assesment.WebAPI.Middleware;
 using Microsoft.AspNetCore.Diagnostics;
 using Microsoft.EntityFrameworkCore;
 using Serilog;
@@ -17,8 +17,7 @@ var logger = new LoggerConfiguration()
 
 builder.Logging.AddSerilog(logger);
 
-
-// Refer to middleware/ServiceExtensions.cs for adding/modify services
+// Refer to Core/Application/Middleware/ServiceExtensions.cs for adding/modify services
 builder.Services.ConfigureApplication(builder.Configuration);
 
 // Add services to the container.

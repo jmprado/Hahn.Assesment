@@ -8,17 +8,8 @@ public class WeatherSeverityAlertConfiguration : IEntityTypeConfiguration<AlertE
 {
     public void Configure(EntityTypeBuilder<AlertEntity> builder)
     {
-        builder.HasMany(w => w.AlertCategories)
-            .WithOne(w => w.Alerts)
-            .HasForeignKey(w => w.AlertId)
-            .HasPrincipalKey(w => w.Id)
-            .OnDelete(DeleteBehavior.Cascade);
-
-        builder.HasMany(w => w.AlertReports)
-            .WithOne(w => w.Alerts)
-            .HasForeignKey(w => w.AlertId)
-            .HasPrincipalKey(w => w.Id)
-            .OnDelete(DeleteBehavior.Cascade);
+        builder.Property(w => w.Id)
+            .ValueGeneratedOnAdd();
 
         builder.HasKey(w => w.Id);
 
@@ -33,5 +24,17 @@ public class WeatherSeverityAlertConfiguration : IEntityTypeConfiguration<AlertE
 
         builder.Property(w => w.WindowsSizeHours)
             .IsRequired();
+
+        builder.HasMany(w => w.AlertCategories)
+            .WithOne()
+            .HasForeignKey(w => w.AlertId)
+            .HasPrincipalKey(w => w.Id)
+            .OnDelete(DeleteBehavior.Cascade);
+
+        builder.HasMany(w => w.AlertReports)
+            .WithOne()
+            .HasForeignKey(w => w.AlertId)
+            .HasPrincipalKey(w => w.Id)
+            .OnDelete(DeleteBehavior.Cascade);
     }
 }

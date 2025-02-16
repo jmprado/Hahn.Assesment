@@ -17,7 +17,7 @@ namespace Hahn.Assesment.Infrastructure
 
         public DbSet<AlertEntity> Alerts { get; set; }
         public DbSet<AlertCategory> AlertCategories { get; set; }
-        public DbSet<AlertReport> AlertyReports { get; set; }
+        public DbSet<AlertReport> AlertReports { get; set; }
 
         protected override void OnConfiguring(DbContextOptionsBuilder optionsBuilder)
         {
