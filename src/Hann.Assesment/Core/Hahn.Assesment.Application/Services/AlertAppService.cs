@@ -1,6 +1,5 @@
 ﻿using AutoMapper;
 using Hahn.Assesment.Application.DTOs;
-using Hahn.Assesment.Application.DTOs.SeverityDtos;
 using Hahn.Assesment.Persistence.Repositories.AlertRepository;
 using Hahn.Assesment.Persistence.Repositories.Category;
 using Hahn.Assesment.Persistence.Repositories.Report;

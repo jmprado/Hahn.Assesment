@@ -25,6 +25,8 @@ Project("{FAE04EC0-301F-11D3-BF4B-00C04F79EFBC}") = "Hann.Assesment.WorkerServic
 EndProject
 Project("{FAE04EC0-301F-11D3-BF4B-00C04F79EFBC}") = "Hahn.Assesment.Hangfire", "Core\Hahn.Assesment.Hangfire\Hahn.Assesment.Hangfire.csproj", "{2544AB89-9D38-42C4-A502-401ECEEA0572}"
 EndProject
+Project("{FAE04EC0-301F-11D3-BF4B-00C04F79EFBC}") = "AlertAppTests", "Tests\AlertAppTests\AlertAppTests.csproj", "{319BF7A4-D362-46C1-B0A7-F7605B21EA34}"
+EndProject
 Global
 	GlobalSection(SolutionConfigurationPlatforms) = preSolution
 		Debug|Any CPU = Debug|Any CPU
@@ -59,6 +61,10 @@ Global
 		{2544AB89-9D38-42C4-A502-401ECEEA0572}.Debug|Any CPU.Build.0 = Debug|Any CPU
 		{2544AB89-9D38-42C4-A502-401ECEEA0572}.Release|Any CPU.ActiveCfg = Release|Any CPU
 		{2544AB89-9D38-42C4-A502-401ECEEA0572}.Release|Any CPU.Build.0 = Release|Any CPU
+		{319BF7A4-D362-46C1-B0A7-F7605B21EA34}.Debug|Any CPU.ActiveCfg = Debug|Any CPU
+		{319BF7A4-D362-46C1-B0A7-F7605B21EA34}.Debug|Any CPU.Build.0 = Debug|Any CPU
+		{319BF7A4-D362-46C1-B0A7-F7605B21EA34}.Release|Any CPU.ActiveCfg = Release|Any CPU
+		{319BF7A4-D362-46C1-B0A7-F7605B21EA34}.Release|Any CPU.Build.0 = Release|Any CPU
 	EndGlobalSection
 	GlobalSection(SolutionProperties) = preSolution
 		HideSolutionNode = FALSE

@@ -1,6 +1,5 @@
 ﻿using AutoMapper;
 using Hahn.Assesment.Application.DTOs;
-using Hahn.Assesment.Application.DTOs.SeverityDtos;
 using Hahn.Assesment.Domain.Entities;
 
 namespace Hahn.Assesment.Application.Mapping
