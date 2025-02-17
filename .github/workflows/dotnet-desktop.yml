@@ -75,7 +75,7 @@ jobs:
     # Restore nuget packages
     - name: Install-Dependencies
       run: dotnet restore Hann.Assesment.sln
-
+      working-directory: ./src
     # Build the solution
     - name: Build
       run: dotnet build --configuration ${{ matrix.configuration }}
