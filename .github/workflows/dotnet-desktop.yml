@@ -69,13 +69,13 @@ jobs:
         dotnet-version: 9.0.x
 
     #Test dot net installation
-    - name: Display dotnet version
+    - name: Check dotnet installation
       run: dotnet --version        
     
     # Restore nuget packages
     - name: Install-Dependencies
-      run: dotnet restore Hann.Assesment.sln
-      working-directory: ./src
+      run: dotnet restore **/*.sln
+      
     # Build the solution
     - name: Build
       run: dotnet build --configuration ${{ matrix.configuration }}
