@@ -2,6 +2,6 @@
 {
     public class HangfireSettings
     {
-        string DbName { get; set; }
+        public required string DbName { get; set; }
     }
 }
