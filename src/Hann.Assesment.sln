@@ -9,21 +9,21 @@ Project("{2150E333-8FDC-42A3-9474-1A3956D46DE8}") = "Infrastructure", "Infrastru
 EndProject
 Project("{2150E333-8FDC-42A3-9474-1A3956D46DE8}") = "Presentation", "Presentation", "{71DB28C8-9513-45E1-AFCB-43D193E548D7}"
 EndProject
-Project("{FAE04EC0-301F-11D3-BF4B-00C04F79EFBC}") = "Hahn.Assesment.Domain", "Core\Hahn.Assesment.Domain\Hahn.Assesment.Domain.csproj", "{E62A3490-6169-4DC3-8EE4-B06E81DD47AA}"
+Project("{FAE04EC0-301F-11D3-BF4B-00C04F79EFBC}") = "Hahn.Assesment.Domain", "Hann.Assesment\Core\Hahn.Assesment.Domain\Hahn.Assesment.Domain.csproj", "{E62A3490-6169-4DC3-8EE4-B06E81DD47AA}"
 EndProject
-Project("{FAE04EC0-301F-11D3-BF4B-00C04F79EFBC}") = "Hahn.Assesment.Application", "Core\Hahn.Assesment.Application\Hahn.Assesment.Application.csproj", "{E3D808D3-3BAB-462F-9804-ED3F6A00A0C4}"
+Project("{FAE04EC0-301F-11D3-BF4B-00C04F79EFBC}") = "Hahn.Assesment.Application", "Hann.Assesment\Core\Hahn.Assesment.Application\Hahn.Assesment.Application.csproj", "{E3D808D3-3BAB-462F-9804-ED3F6A00A0C4}"
 EndProject
-Project("{FAE04EC0-301F-11D3-BF4B-00C04F79EFBC}") = "Hahn.Assesment.Persistence", "Infrastructure\Hahn.Assesment.Persistence\Hahn.Assesment.Persistence.csproj", "{73046F38-8EA7-4593-BAFE-BB89A256AF9A}"
+Project("{FAE04EC0-301F-11D3-BF4B-00C04F79EFBC}") = "Hahn.Assesment.Persistence", "Hann.Assesment\Infrastructure\Hahn.Assesment.Persistence\Hahn.Assesment.Persistence.csproj", "{73046F38-8EA7-4593-BAFE-BB89A256AF9A}"
 EndProject
 Project("{2150E333-8FDC-42A3-9474-1A3956D46DE8}") = "Tests", "Tests", "{1BA3FAC2-C34E-471D-94DA-3B0CA189279F}"
 EndProject
-Project("{FAE04EC0-301F-11D3-BF4B-00C04F79EFBC}") = "Hahn.Assesment.Tests", "Tests\TestProject1\Hahn.Assesment.Tests.csproj", "{AB517144-B284-4952-9E03-4E7EC2F955C8}"
+Project("{FAE04EC0-301F-11D3-BF4B-00C04F79EFBC}") = "Hahn.Assesment.Tests", "Hann.Assesment\Tests\TestProject1\Hahn.Assesment.Tests.csproj", "{AB517144-B284-4952-9E03-4E7EC2F955C8}"
 EndProject
-Project("{FAE04EC0-301F-11D3-BF4B-00C04F79EFBC}") = "Hahn.Assesment.WebAPI", "Presentation\Hahn.Assesment.WebAPI\Hahn.Assesment.WebAPI.csproj", "{8669EABA-050A-4D40-8CCE-D97A18C47924}"
+Project("{FAE04EC0-301F-11D3-BF4B-00C04F79EFBC}") = "Hahn.Assesment.WebAPI", "Hann.Assesment\Presentation\Hahn.Assesment.WebAPI\Hahn.Assesment.WebAPI.csproj", "{8669EABA-050A-4D40-8CCE-D97A18C47924}"
 EndProject
-Project("{FAE04EC0-301F-11D3-BF4B-00C04F79EFBC}") = "Hann.Assesment.WorkerService", "Presentation\Hann.Assesment.WorkerService\Hann.Assesment.WorkerService.csproj", "{AD6F82FA-E34C-4E4C-BF28-0ABB5630EEE9}"
+Project("{FAE04EC0-301F-11D3-BF4B-00C04F79EFBC}") = "Hann.Assesment.WorkerService", "Hann.Assesment\Presentation\Hann.Assesment.WorkerService\Hann.Assesment.WorkerService.csproj", "{AD6F82FA-E34C-4E4C-BF28-0ABB5630EEE9}"
 EndProject
-Project("{FAE04EC0-301F-11D3-BF4B-00C04F79EFBC}") = "Hahn.Assesment.Hangfire", "Core\Hahn.Assesment.Hangfire\Hahn.Assesment.Hangfire.csproj", "{2544AB89-9D38-42C4-A502-401ECEEA0572}"
+Project("{FAE04EC0-301F-11D3-BF4B-00C04F79EFBC}") = "Hahn.Assesment.Hangfire", "Hann.Assesment\Core\Hahn.Assesment.Hangfire\Hahn.Assesment.Hangfire.csproj", "{2544AB89-9D38-42C4-A502-401ECEEA0572}"
 EndProject
 Global
 	GlobalSection(SolutionConfigurationPlatforms) = preSolution
