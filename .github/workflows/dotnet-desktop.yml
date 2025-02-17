@@ -45,9 +45,7 @@ on:
     branches: [ "main" ]
 
 jobs:
-
   build:
-
     strategy:
       matrix:
         configuration: [Debug, Release]
@@ -57,7 +55,7 @@ jobs:
 
     env:
       Solution_Name: Hann.Assesment.sln                        # Replace with your solution name, i.e. MyWpfApp.sln.
-      Test_Project_Path: Tests\TestProject1                # Replace with the path to your test project, i.e. MyWpfApp.Tests\MyWpfApp.Tests.csproj.
+      Test_Project_Path: Tests\TestProject1\Hahn.Assesment.Tests.csproj                # Replace with the path to your test project, i.e. MyWpfApp.Tests\MyWpfApp.Tests.csproj.
 
     steps:
     - name: Checkout
