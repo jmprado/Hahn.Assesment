@@ -1,8 +1,6 @@
-using Hahn.Assesment.Application.Middleware;
-using Hahn.Assesment.Appliction.Services.Hangfire;
-using Hahn.Assesment.Infrastructure;
+using Hahn.Assesment.Hangfire;
+using Hahn.Assesment.WorkerService.ServiceExtensions;
 using Hangfire;
-using Hangfire.SqlServer;
 using Microsoft.Data.SqlClient;
 using Microsoft.EntityFrameworkCore;
 
@@ -24,7 +22,6 @@ CreateHangfireDb();
 
 builder.Services.AddHangfire((serviceProvider, config) =>
 {
-    ApplyAutomaticDatabaseMigration(serviceProvider);
     config.UseSqlServerStorage(builder.Configuration.GetConnectionString(_hangfireDbName));
     config.SetDataCompatibilityLevel(CompatibilityLevel.Version_180);
     config.UseSimpleAssemblyNameTypeSerializer();
@@ -53,26 +50,15 @@ app.MapControllers();
 app.MapHangfireDashboard();
 
 // Add hangfire recurring job to load alert data.
-using (var scope = app.Services.CreateScope())
-{
-    var services = scope.ServiceProvider;
-    var loadAlertJob = services.GetService<IHangfireJobs>();
-    loadAlertJob?.AddRecurringJob();
-}
+AddHangfireAlertRecurringJob();
 
 app.Run();
 
-
-
-void ApplyAutomaticDatabaseMigration(IServiceProvider serviceProvider)
+void AddHangfireAlertRecurringJob()
 {
-    JobStorage.Current = new SqlServerStorage(builder.Configuration.GetConnectionString(_hangfireDbName));
-    var context = serviceProvider.CreateScope().ServiceProvider.GetRequiredService<AppDbContext>();
-    context.Database.Migrate();
-    context.Database.EnsureCreated();
+    var loadAlertJob = app.Services.CreateScope().ServiceProvider.GetRequiredService<IJobsWorker>();
+    loadAlertJob?.AddAlertRecurringJob();
 }
-
-
 
 void CreateHangfireDb()
 {

@@ -11,7 +11,7 @@ public class AlertApiProfile : Profile
         CreateMap<AlertReportApiModel, AlertReport>()
             .ForMember(dest => dest.Id, opt => opt.Ignore())
             .ForMember(dest => dest.ReportId, opt => opt.MapFrom(src => src.MeldungId))
-            .ForMember(dest => dest.AlertDate, opt => opt.MapFrom(src => GetDateTimeFromTimestamp(src.Timestamp)))
+            .ForMember(dest => dest.ReportDate, opt => opt.MapFrom(src => GetDateTimeFromTimestamp(src.Timestamp)))
             .ForMember(dest => dest.ExtraAttribute, opt => opt.MapFrom(src => src.ZusatzAttribute))
             .ForMember(dest => dest.AlertId, opt => opt.Ignore())
             .ForMember(dest => dest.Alerts, opt => opt.Ignore());

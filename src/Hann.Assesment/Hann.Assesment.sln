@@ -23,6 +23,8 @@ Project("{FAE04EC0-301F-11D3-BF4B-00C04F79EFBC}") = "Hahn.Assesment.WebAPI", "Pr
 EndProject
 Project("{FAE04EC0-301F-11D3-BF4B-00C04F79EFBC}") = "Hann.Assesment.WorkerService", "Presentation\Hann.Assesment.WorkerService\Hann.Assesment.WorkerService.csproj", "{AD6F82FA-E34C-4E4C-BF28-0ABB5630EEE9}"
 EndProject
+Project("{FAE04EC0-301F-11D3-BF4B-00C04F79EFBC}") = "Hahn.Assesment.Hangfire", "Core\Hahn.Assesment.Hangfire\Hahn.Assesment.Hangfire.csproj", "{2544AB89-9D38-42C4-A502-401ECEEA0572}"
+EndProject
 Global
 	GlobalSection(SolutionConfigurationPlatforms) = preSolution
 		Debug|Any CPU = Debug|Any CPU
@@ -53,6 +55,10 @@ Global
 		{AD6F82FA-E34C-4E4C-BF28-0ABB5630EEE9}.Debug|Any CPU.Build.0 = Debug|Any CPU
 		{AD6F82FA-E34C-4E4C-BF28-0ABB5630EEE9}.Release|Any CPU.ActiveCfg = Release|Any CPU
 		{AD6F82FA-E34C-4E4C-BF28-0ABB5630EEE9}.Release|Any CPU.Build.0 = Release|Any CPU
+		{2544AB89-9D38-42C4-A502-401ECEEA0572}.Debug|Any CPU.ActiveCfg = Debug|Any CPU
+		{2544AB89-9D38-42C4-A502-401ECEEA0572}.Debug|Any CPU.Build.0 = Debug|Any CPU
+		{2544AB89-9D38-42C4-A502-401ECEEA0572}.Release|Any CPU.ActiveCfg = Release|Any CPU
+		{2544AB89-9D38-42C4-A502-401ECEEA0572}.Release|Any CPU.Build.0 = Release|Any CPU
 	EndGlobalSection
 	GlobalSection(SolutionProperties) = preSolution
 		HideSolutionNode = FALSE
@@ -64,5 +70,6 @@ Global
 		{AB517144-B284-4952-9E03-4E7EC2F955C8} = {1BA3FAC2-C34E-471D-94DA-3B0CA189279F}
 		{8669EABA-050A-4D40-8CCE-D97A18C47924} = {71DB28C8-9513-45E1-AFCB-43D193E548D7}
 		{AD6F82FA-E34C-4E4C-BF28-0ABB5630EEE9} = {71DB28C8-9513-45E1-AFCB-43D193E548D7}
+		{2544AB89-9D38-42C4-A502-401ECEEA0572} = {1D4A33A9-F975-4A7F-A6AA-94307F4075A7}
 	EndGlobalSection
 EndGlobal

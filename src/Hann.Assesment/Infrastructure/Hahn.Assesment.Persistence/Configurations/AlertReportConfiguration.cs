@@ -16,7 +16,7 @@ public class AlertReportConfiguration : IEntityTypeConfiguration<AlertReport>
         builder.Property(w => w.AlertId)
             .IsRequired();
 
-        builder.Property(w => w.AlertDate)
+        builder.Property(w => w.ReportDate)
             .IsRequired();
 
         builder.Property(w => w.Lat)
