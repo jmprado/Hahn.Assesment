@@ -8,6 +8,6 @@ public class AlertEntity
     public DateTime End { get; set; }
     public short WindowsSizeHours { get; set; }
 
-    public virtual IEnumerable<AlertReport>? AlertReports { get; set; }
-    public virtual IEnumerable<AlertCategory>? AlertCategories { get; set; }
+    public virtual ICollection<AlertReport>? AlertReports { get; set; }
+    public virtual ICollection<AlertCategory>? AlertCategories { get; set; }
 }
