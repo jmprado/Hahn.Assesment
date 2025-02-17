@@ -1,0 +1,1 @@
+/opt/mssql-tools18/bin/sqlcmd -S sqlserver -U sa -P Password123! -d master -i ./init-hangfire-db.sql
