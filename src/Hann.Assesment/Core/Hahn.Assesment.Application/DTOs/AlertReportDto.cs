@@ -4,7 +4,7 @@ public class AlertReportDto
 {
     public Guid Id { get; set; }
     public int ReportId { get; set; }
-    public DateTime AlertDate { get; set; }
+    public DateTime ReportDate { get; set; }
     public required string Lat { get; set; }
     public required string Lon { get; set; }
     public string? Place { get; set; }
