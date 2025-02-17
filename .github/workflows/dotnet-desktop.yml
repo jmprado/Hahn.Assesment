@@ -74,8 +74,7 @@ jobs:
     
     # Restore nuget packages
     - name: Install-Dependencies
-      run: dotnet restore **/Hann.Assesment.sln
-      working-directory: src/Hahn.Assesment/
+      run: dotnet restore Hann.Assesment.sln
 
     # Build the solution
     - name: Build
