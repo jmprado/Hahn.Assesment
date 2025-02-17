@@ -1,10 +1,7 @@
-﻿using System.ComponentModel.DataAnnotations.Schema;
-
-namespace Hahn.Assesment.Domain.Entities;
+﻿namespace Hahn.Assesment.Domain.Entities;
 
 public class AlertEntity
 {
-    [DatabaseGenerated(DatabaseGeneratedOption.Identity)]
     public Guid Id { get; set; }
     public DateTime UpdatedAt { get; set; }
     public DateTime Start { get; set; }

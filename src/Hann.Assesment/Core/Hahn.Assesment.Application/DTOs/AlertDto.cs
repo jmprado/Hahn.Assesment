@@ -7,7 +7,4 @@ public class AlertDto
     public DateTime Start { get; set; }
     public DateTime End { get; set; }
     public short WindowsSizeHours { get; set; }
-
-    public virtual IEnumerable<AlertReportDto>? SeverityReports { get; set; }
-    public virtual IEnumerable<AlertCategoryDto>? SeverityCategories { get; set; }
 }

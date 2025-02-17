@@ -1,0 +1,19 @@
+﻿<Project Sdk="Microsoft.NET.Sdk">
+
+  <PropertyGroup>
+    <TargetFramework>net9.0</TargetFramework>
+    <ImplicitUsings>enable</ImplicitUsings>
+    <Nullable>enable</Nullable>
+  </PropertyGroup>
+
+  <ItemGroup>
+    <PackageReference Include="Hangfire.Core" Version="1.8.17" />
+  </ItemGroup>
+
+  <ItemGroup>
+    <ProjectReference Include="..\..\Infrastructure\Hahn.Assesment.Persistence\Hahn.Assesment.Persistence.csproj" />
+    <ProjectReference Include="..\Hahn.Assesment.Application\Hahn.Assesment.Application.csproj" />
+    <ProjectReference Include="..\Hahn.Assesment.Domain\Hahn.Assesment.Domain.csproj" />
+  </ItemGroup>
+
+</Project>
