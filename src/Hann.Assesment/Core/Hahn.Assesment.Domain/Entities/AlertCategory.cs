@@ -3,8 +3,8 @@
 public class AlertCategory
 {
     public Guid Id { get; set; }
-    public string Category { get; set; } = "";
-    public string Condition { get; set; } = "";
+    public required string Category { get; set; }
+    public required string Condition { get; set; }
 
     public Guid AlertId { get; set; }
 

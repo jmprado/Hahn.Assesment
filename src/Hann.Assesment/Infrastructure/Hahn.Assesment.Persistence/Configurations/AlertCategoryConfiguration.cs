@@ -8,20 +8,20 @@ namespace Hahn.Assesment.Infrastructure.Configurations
     {
         public void Configure(EntityTypeBuilder<AlertCategory> builder)
         {
-            builder.HasKey(sc => sc.Id);
+            builder.Property(w => w.Id)
+                .ValueGeneratedOnAdd();
 
-            builder.Property(sc => sc.Category)
+            builder.HasKey(w => w.Id);
+
+            builder.Property(w => w.Category)
                 .IsRequired()
                 .HasMaxLength(100);
 
-            builder.Property(sc => sc.Condition)
+            builder.Property(w => w.Condition)
                 .IsRequired()
                 .HasMaxLength(200);
 
-            builder.Property(sc => sc.AlertId)
-                .IsRequired();
-
-            builder.Property(sr => sr.AlertId)
+            builder.Property(w => w.AlertId)
                 .IsRequired();
         }
     }

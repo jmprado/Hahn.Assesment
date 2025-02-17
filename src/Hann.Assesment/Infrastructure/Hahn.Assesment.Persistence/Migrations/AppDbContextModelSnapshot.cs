@@ -22,36 +22,17 @@ namespace Hahn.Assesment.Persistence.Migrations
 
             SqlServerModelBuilderExtensions.UseIdentityColumns(modelBuilder);
 
-            modelBuilder.Entity("Hahn.Assesment.Domain.Entities.Alert", b =>
-                {
-                    b.Property<Guid>("Id")
-                        .ValueGeneratedOnAdd()
-                        .HasColumnType("uniqueidentifier");
-
-                    b.Property<int>("End")
-                        .HasColumnType("int");
-
-                    b.Property<int>("Start")
-                        .HasColumnType("int");
-
-                    b.Property<DateTime>("UpdatedAt")
-                        .HasColumnType("datetime2");
-
-                    b.Property<int>("WindowsSizeHours")
-                        .HasColumnType("int");
-
-                    b.HasKey("Id");
-
-                    b.ToTable("Alerts");
-                });
-
             modelBuilder.Entity("Hahn.Assesment.Domain.Entities.AlertCategory", b =>
                 {
                     b.Property<Guid>("Id")
                         .ValueGeneratedOnAdd()
-                        .HasColumnType("uniqueidentifier");
+                        .HasColumnType("uniqueidentifier")
+                        .HasDefaultValueSql("NEWID()");
 
                     b.Property<Guid>("AlertId")
+                        .HasColumnType("uniqueidentifier");
+
+                    b.Property<Guid?>("AlertsId")
                         .HasColumnType("uniqueidentifier");
 
                     b.Property<string>("Category")
@@ -68,18 +49,46 @@ namespace Hahn.Assesment.Persistence.Migrations
 
                     b.HasIndex("AlertId");
 
+                    b.HasIndex("AlertsId");
+
                     b.ToTable("AlertCategories");
+                });
+
+            modelBuilder.Entity("Hahn.Assesment.Domain.Entities.AlertEntity", b =>
+                {
+                    b.Property<Guid>("Id")
+                        .ValueGeneratedOnAdd()
+                        .HasColumnType("uniqueidentifier")
+                        .HasDefaultValueSql("NEWID()");
+
+                    b.Property<DateTime>("End")
+                        .HasColumnType("datetime2");
+
+                    b.Property<DateTime>("Start")
+                        .HasColumnType("datetime2");
+
+                    b.Property<DateTime>("UpdatedAt")
+                        .HasColumnType("datetime2");
+
+                    b.Property<short>("WindowsSizeHours")
+                        .HasColumnType("smallint");
+
+                    b.HasKey("Id");
+
+                    b.ToTable("Alerts");
                 });
 
             modelBuilder.Entity("Hahn.Assesment.Domain.Entities.AlertReport", b =>
                 {
-                    b.Property<int>("Id")
+                    b.Property<Guid>("Id")
                         .ValueGeneratedOnAdd()
-                        .HasColumnType("int");
-
-                    SqlServerPropertyBuilderExtensions.UseIdentityColumn(b.Property<int>("Id"));
+                        .HasColumnType("uniqueidentifier")
+                        .HasDefaultValueSql("NEWID()");
 
                     b.Property<Guid>("AlertId")
+                        .HasColumnType("uniqueidentifier");
+
+                    b.Property<Guid?>("AlertsId")
                         .HasColumnType("uniqueidentifier");
 
                     b.Property<string>("BlurHash")
@@ -131,46 +140,58 @@ namespace Hahn.Assesment.Persistence.Migrations
                         .HasColumnType("nvarchar(50)");
 
                     b.Property<string>("Place")
-                        .IsRequired()
                         .HasMaxLength(200)
                         .HasColumnType("nvarchar(200)");
 
-                    b.Property<int>("Timestamp")
+                    b.Property<DateTime>("ReportDate")
+                        .HasColumnType("datetime2");
+
+                    b.Property<int>("ReportId")
                         .HasColumnType("int");
 
                     b.HasKey("Id");
 
                     b.HasIndex("AlertId");
 
+                    b.HasIndex("AlertsId");
+
                     b.HasIndex("Category")
                         .HasDatabaseName("IX_SeverityReport_Category");
 
-                    b.ToTable("AlertyReports");
+                    b.ToTable("AlertReports");
                 });
 
             modelBuilder.Entity("Hahn.Assesment.Domain.Entities.AlertCategory", b =>
                 {
-                    b.HasOne("Hahn.Assesment.Domain.Entities.Alert", "Alerts")
+                    b.HasOne("Hahn.Assesment.Domain.Entities.AlertEntity", null)
                         .WithMany("AlertCategories")
                         .HasForeignKey("AlertId")
                         .OnDelete(DeleteBehavior.Cascade)
                         .IsRequired();
+
+                    b.HasOne("Hahn.Assesment.Domain.Entities.AlertEntity", "Alerts")
+                        .WithMany()
+                        .HasForeignKey("AlertsId");
 
                     b.Navigation("Alerts");
                 });
 
             modelBuilder.Entity("Hahn.Assesment.Domain.Entities.AlertReport", b =>
                 {
-                    b.HasOne("Hahn.Assesment.Domain.Entities.Alert", "Alerts")
+                    b.HasOne("Hahn.Assesment.Domain.Entities.AlertEntity", null)
                         .WithMany("AlertReports")
                         .HasForeignKey("AlertId")
                         .OnDelete(DeleteBehavior.Cascade)
                         .IsRequired();
 
+                    b.HasOne("Hahn.Assesment.Domain.Entities.AlertEntity", "Alerts")
+                        .WithMany()
+                        .HasForeignKey("AlertsId");
+
                     b.Navigation("Alerts");
                 });
 
-            modelBuilder.Entity("Hahn.Assesment.Domain.Entities.Alert", b =>
+            modelBuilder.Entity("Hahn.Assesment.Domain.Entities.AlertEntity", b =>
                 {
                     b.Navigation("AlertCategories");
 

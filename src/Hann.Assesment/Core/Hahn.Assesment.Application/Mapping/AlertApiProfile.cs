@@ -9,7 +9,9 @@ public class AlertApiProfile : Profile
     public AlertApiProfile()
     {
         CreateMap<AlertReportApiModel, AlertReport>()
-            .ForMember(dest => dest.Id, opt => opt.MapFrom(src => src.MeldungId))
+            .ForMember(dest => dest.Id, opt => opt.Ignore())
+            .ForMember(dest => dest.ReportId, opt => opt.MapFrom(src => src.MeldungId))
+            .ForMember(dest => dest.ReportDate, opt => opt.MapFrom(src => GetDateTimeFromTimestamp(src.Timestamp)))
             .ForMember(dest => dest.ExtraAttribute, opt => opt.MapFrom(src => src.ZusatzAttribute))
             .ForMember(dest => dest.AlertId, opt => opt.Ignore())
             .ForMember(dest => dest.Alerts, opt => opt.Ignore());
@@ -23,7 +25,15 @@ public class AlertApiProfile : Profile
         CreateMap<AlertApiModel, AlertEntity>()
             .ForMember(dest => dest.Id, opt => opt.Ignore())
             .ForMember(dest => dest.UpdatedAt, opt => opt.MapFrom(src => DateTime.Now))
-            .ForMember(dest => dest.AlertReports, opt => opt.MapFrom(src => src.AlertReports))
-            .ForMember(dest => dest.AlertCategories, opt => opt.MapFrom(src => src.AlertCategories));
+            .ForMember(dest => dest.Start, opt => opt.MapFrom(src => GetDateTimeFromTimestamp(src.Start)))
+            .ForMember(dest => dest.End, opt => opt.MapFrom(src => GetDateTimeFromTimestamp(src.End)))
+            .ForMember(dest => dest.AlertReports, opt => opt.Ignore())
+            .ForMember(dest => dest.AlertCategories, opt => opt.Ignore());
     }
+
+    private DateTime GetDateTimeFromTimestamp(long timestamp)
+    {
+        return DateTimeOffset.FromUnixTimeMilliseconds(timestamp).DateTime;
+    }
+
 }

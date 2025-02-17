@@ -15,4 +15,4 @@ IF "%1"=="clean" (
 
 REM Build the Docker image
 docker build -t sqlserver .
-docker-compose up  
+docker-compose up

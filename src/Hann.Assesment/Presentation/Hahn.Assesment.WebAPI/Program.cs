@@ -1,9 +1,5 @@
-using Hahn.Assesment.Infrastructure;
-using Hahn.Assesment.WebAPI.Middleware;
-using Microsoft.AspNetCore.Diagnostics;
-using Microsoft.EntityFrameworkCore;
+using Hahn.Assesment.WebAPI.ServiceExtensions;
 using Serilog;
-using System.Net;
 
 var builder = WebApplication.CreateBuilder(args);
 
@@ -17,8 +13,7 @@ var logger = new LoggerConfiguration()
 
 builder.Logging.AddSerilog(logger);
 
-
-// Refer to middleware/ServiceExtensions.cs for adding/modify services
+// Refer to Core/Application/Middleware/ServiceExtensions.cs for adding/modify services
 builder.Services.ConfigureApplication(builder.Configuration);
 
 // Add services to the container.
@@ -28,38 +23,21 @@ builder.Services.AddControllers();
 builder.Services.AddOpenApi();
 var app = builder.Build();
 
-
 // Global exception handling
-app.UseExceptionHandler(options =>
+app.UseGlobalExceptionHandler();
+
+app.UseSwaggerUI(options =>
 {
-    options.Run(async context =>
-    {
-        context.Response.StatusCode = (int)HttpStatusCode.BadRequest;
-        context.Response.ContentType = "application/json";
-        var exception = context.Features.Get<IExceptionHandlerFeature>();
-        if (exception != null)
-        {
-            var message = $"{exception.Error.Message}";
-            await context.Response.WriteAsync(message).ConfigureAwait(false);
-        }
-    });
+    options.SwaggerEndpoint("/openapi/v1.json", "v1");
 });
-
-
-using (var scope = app.Services.CreateScope())
-{
-    //replace DataContext with your Db Context name
-    var dataContext = scope.ServiceProvider.GetRequiredService<AppDbContext>();
-    dataContext.Database.EnsureDeleted();
-    dataContext.Database.EnsureCreated();
-    dataContext.Database.Migrate();
-}
 
 // Configure the HTTP request pipeline.
 if (app.Environment.IsDevelopment())
 {
     app.MapOpenApi();
 }
+
+app.MapControllers();
 
 app.UseHttpsRedirection();
 

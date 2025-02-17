@@ -2,11 +2,12 @@
 
 public class AlertReport
 {
-    public int Id { get; set; }
-    public int Timestamp { get; set; }
+    public Guid Id { get; set; }
+    public int ReportId { get; set; }
+    public DateTime ReportDate { get; set; }
     public string Lat { get; set; } = "";
     public string Lon { get; set; } = "";
-    public string Place { get; set; } = "";
+    public string? Place { get; set; } = "";
     public string Category { get; set; } = "";
     public string Condition { get; set; } = "";
     public List<string>? ExtraAttribute { get; set; } = new List<string>();
