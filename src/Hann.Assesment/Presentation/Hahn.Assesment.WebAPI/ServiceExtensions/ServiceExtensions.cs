@@ -23,6 +23,6 @@ public static class ServiceExtensions
         services.AddScoped<IAlertApiService, AlertApiService>();
         services.AddScoped<IAlertAppService, AlertAppService>();
 
-        services.AddAutoMapper(typeof(AlertProfile), typeof(AlertApiProfile));
+        services.AddAutoMapper(typeof(AlertAppProfile), typeof(AlertApiProfile));
     }
 }

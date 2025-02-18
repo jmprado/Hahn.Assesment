@@ -17,7 +17,7 @@ namespace Hahn.Assesment.WebAPI.Controllers
         }
 
 
-        [HttpGet("alert")]
+        [HttpGet("current-alert")]
         public async Task<IActionResult> GetCurrentAlertAsync()
         {
             var alert = await _alertAppService.GetCurrentAlertAsync();
@@ -30,14 +30,14 @@ namespace Hahn.Assesment.WebAPI.Controllers
             return Ok(alert);
         }
 
-        [HttpGet("categories/{alertId}")]
+        [HttpGet("{alertId}/categories")]
         public async Task<IActionResult> GetCategoriesAsync(Guid alertId)
         {
             var categories = await _alertAppService.GetCategoriesAsync(alertId);
             return Ok(categories);
         }
 
-        [HttpGet("reports/{alertId}")]
+        [HttpGet("{alertId}/reports")]
         public async Task<IActionResult> GetReportsAsync(Guid alertId)
         {
             var reports = await _alertAppService.GetReportsAsync(alertId);

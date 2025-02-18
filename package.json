@@ -1,9 +1,8 @@
 {
   "dependencies": {
-    "axios": "^1.7.9",
-    "vue-good-table": "^2.21.11"
+    "element-plus": "^2.9.4"
   },
   "devDependencies": {
-    "@types/node": "^22.13.4"
+    "ag-grid-vue3": "^33.1.0"
   }
 }

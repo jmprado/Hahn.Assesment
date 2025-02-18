@@ -24,7 +24,7 @@ public class AlertAppServiceTests
     {
         var mappingConfig = new MapperConfiguration(mc =>
         {
-            mc.AddProfile(new AlertProfile());
+            mc.AddProfile(new AlertAppProfile());
         });
         IMapper mapper = mappingConfig.CreateMapper();
         _mapper = mapper;
@@ -51,14 +51,6 @@ public class AlertAppServiceTests
             Start = DateTime.UtcNow.AddHours(-1),
             End = DateTime.UtcNow.AddHours(1),
             WindowsSizeHours = 2
-        };
-        var alertDto = new AlertDto
-        {
-            Id = alert.Id,
-            UpdatedAt = alert.UpdatedAt,
-            Start = alert.Start,
-            End = alert.End,
-            WindowsSizeHours = alert.WindowsSizeHours
         };
 
         _alertRepositoryMock.Setup(repo => repo.GetCurrentAlertAsync()).ReturnsAsync(alert);
@@ -114,31 +106,8 @@ public class AlertAppServiceTests
                 AlertId = alertId
             }
         };
-        var reportsDto = new List<AlertReportDto>
-        {
-            new AlertReportDto
-            {
-                Id = reports[0].Id,
-                ReportId = reports[0].ReportId,
-                ReportDate = reports[0].ReportDate,
-                Lat = reports[0].Lat,
-                Lon = reports[0].Lon,
-                Place = reports[0].Place,
-                Category = reports[0].Category,
-                Condition = reports[0].Condition,
-                ExtraAttribute = reports[0].ExtraAttribute,
-                LikeCount = reports[0].LikeCount,
-                ImageUrl = reports[0].ImageUrl,
-                ImageThumbUrl = reports[0].ImageThumbUrl,
-                ImageMediumUrl = reports[0].ImageMediumUrl,
-                BlurHash = reports[0].BlurHash,
-                ImageThumbWidth = reports[0].ImageThumbWidth,
-                ImageThumbHeight = reports[0].ImageThumbHeight,
-                AlertId = reports[0].AlertId
-            }
-        };
 
-        _reportRepositoryMock.Setup(repo => repo.GetAlertReportsAsync(alertId, It.IsAny<int>(), It.IsAny<int>())).ReturnsAsync(reports);
+        _reportRepositoryMock.Setup(repo => repo.GetAlertReportsAsync(alertId)).ReturnsAsync(reports);
 
 
         // Act
