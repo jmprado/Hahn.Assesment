@@ -16,6 +16,8 @@ builder.Logging.AddSerilog(logger);
 // Refer to Core/Application/Middleware/ServiceExtensions.cs for adding/modify services
 builder.Services.ConfigureApplication(builder.Configuration);
 
+builder.Services.AddRouting(options => options.LowercaseUrls = true);
+
 // Add services to the container.
 builder.Services.AddControllers();
 
@@ -44,5 +46,7 @@ app.UseHttpsRedirection();
 app.UseAuthorization();
 
 app.MapControllers();
+
+app.UseCors();
 
 app.Run();

@@ -26,6 +26,6 @@ public static class ServiceExtensions
 
         services.AddScoped<IJobsWorker, JobsWorker>();
 
-        services.AddAutoMapper(typeof(AlertProfile), typeof(AlertApiProfile));
+        services.AddAutoMapper(typeof(AlertAppProfile), typeof(AlertApiProfile));
     }
 }

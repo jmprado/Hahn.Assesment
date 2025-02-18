@@ -19,13 +19,11 @@ namespace Hahn.Assesment.Persistence.Repositories.Report
             await _context.SaveChangesAsync();
         }
 
-        public async Task<IEnumerable<AlertReport>> GetAlertReportsAsync(Guid alertId, int pageSize = 20, int page = 0)
+        public async Task<IEnumerable<AlertReport>> GetAlertReportsAsync(Guid alertId)
         {
             return await _context.AlertReports
                 .OrderBy(r => r.ReportDate)
                 .Where(r => r.AlertId == alertId)
-                .Skip(page * pageSize)
-                .Take(pageSize)
                 .ToListAsync();
         }
     }
