@@ -1,8 +1,0 @@
-{
-  "dependencies": {
-    "element-plus": "^2.9.4"
-  },
-  "devDependencies": {
-    "ag-grid-vue3": "^33.1.0"
-  }
-}

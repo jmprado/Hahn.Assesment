@@ -13,7 +13,7 @@
 <script setup>
 import { ref, onMounted } from 'vue';
 import apiClient from '@/services/api-client';
-import useAlertAppStore from '@/store/index';
+import useAlertAppStore from '@/store/useAlertAppStore';
 
 const store = useAlertAppStore();
 

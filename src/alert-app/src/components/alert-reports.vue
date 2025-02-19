@@ -5,19 +5,25 @@
             <p>Loading alert reports...</p>
         </div>
         <div v-else>
-            <ag-grid-vue :rowData="rowData" :columnDefs="colDefs" style="height: 500px" @rowClicked="onRowClicked"
-                valueGetter={rowDataGetter}>
+            <ag-grid-vue :rowData="rowData" :columnDefs="colDefs" style="height: 500px">
             </ag-grid-vue>
+            <v-overlay :model-value="toggleImage" class="overlay-center">
+                <div class="image-container">
+                    <alert-image :imageData="cellData" />
+                </div>
+            </v-overlay>
         </div>
     </div>
 </template>
+
 <script setup>
 import { ref, onMounted } from 'vue';
 import { AgGridVue } from "ag-grid-vue3"; // Vue Data Grid Component
-import { gridColumns } from '@/config/report-column-definition.js';
-import { MutationType } from 'pinia'
-import useAlertAppStore from '@/store/index';
+import { MutationType } from 'pinia';
+import alertImage from './alert-image.vue';
+import useAlertAppStore from '@/store/useAlertAppStore';
 import apiClient from '@/services/api-client';
+
 import {
     ModuleRegistry,
     ColumnAutoSizeModule,
@@ -50,8 +56,9 @@ ModuleRegistry.registerModules([
 const reports = ref([]);
 const reportsFiltered = ref([]);
 const isLoading = ref(true);
-const colDefs = ref(gridColumns)
 const rowData = ref(reportsFiltered);
+const toggleImage = ref(false);
+const cellData = ref(null);
 
 const store = useAlertAppStore();
 
@@ -75,7 +82,7 @@ const fetchReports = async () => {
 onMounted(() => { fetchReports(); watchGridFilterSate(); });
 
 const filterReports = (gridFilter) => {
-    if(gridFilter === "All") {
+    if (gridFilter === "All") {
         reportsFiltered.value = reports.value;
         return;
     }
@@ -85,23 +92,64 @@ const filterReports = (gridFilter) => {
 
 const watchGridFilterSate = () => {
     store.$subscribe((mutation, state) => {
-        mutation.type  = MutationType.direct;
-        mutation.gridFilter
+        mutation.type = MutationType.direct;
+        mutation.gridFilter;
         filterReports(state.gridFilter);
     })
 };
+
+const showImage = (data) => {
+    console.log('data:', data);
+    cellData.value = data;
+    toggleImage.value = !toggleImage.value;
+};
+
+const colDefs = [
+    { field: 'reportDate' },
+    {
+        field: 'place',
+        cellRenderer: function (params) {
+            return `<a href="https://maps.google.com/?q=${params.data.lat},${params.data.lon}" target="_blank">${params.value}</a>`;
+        },
+    },
+    { field: 'category', cellDataType: 'text' },
+    {
+        headerName: 'Image',
+        field: 'imageUrl',
+        cellStyle: function () {
+            return { color: '#416AD3' };
+        },
+        cellRenderer: function (params) {
+            if (params.data.imageUrl) {
+                return `<span style="color: hsla(160, 100%, 37%, 1); cursor: pointer;" @click="showImage('${params.data.imageUrl}')">View</span>`;
+            }
+            return 'N/A';
+        },
+        onCellClicked: function (params) {
+            if(params.data.imageUrl) 
+                showImage(params.data);
+        },
+    },
+];
 </script>
 
-<script>
-export default {
-    name: "AlertReports",
-    components: {
-        AgGridVue, // Add Vue Data Grid component
-    },
-};
-</script>
 <style scoped>
 #alert-categories {
     margin-top: 20px;
+}
+
+.overlay-center {
+    display: flex;
+    justify-content: center;
+    align-items: center;
+}
+
+.image-container {
+    display: flex;
+    justify-content: center;
+    align-items: center;
+    background: white;
+    padding: 20px;
+    border-radius: 10px;
 }
 </style>
