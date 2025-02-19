@@ -1,5 +1,4 @@
 import './assets/main.css'
-import 'element-plus/dist/index.css'
 import 'vuetify/styles'
 import { createVuetify } from 'vuetify'
 import { createPinia } from 'pinia'
@@ -16,5 +15,6 @@ const vuetify = createVuetify({
   })
 
 const app = createApp(App);
-app.use(pinia).use(vuetify).mount('#app')
-1
+app.use(pinia);
+app.use(vuetify);
+app.mount('#app');
