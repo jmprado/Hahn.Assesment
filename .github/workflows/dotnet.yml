@@ -1,0 +1,55 @@
+name: .NET Core WebAPI
+
+on:
+  push:
+    branches: [ "main" ]
+  pull_request:
+    branches: [ "main" ]
+
+jobs:
+  build:
+    strategy:
+      matrix:
+        configuration: [Debug, Release]
+
+    runs-on: ubuntu-latest  # For a list of available runner types, refer to
+                             # https://help.github.com/en/actions/reference/workflow-syntax-for-github-actions#jobsjob_idruns-on
+
+    env:
+      Solution_Name: Hann.Assesment.sln                        # Replace with your solution name, i.e. MyWpfApp.sln.      
+
+    steps:
+    - name: Checkout
+      uses: actions/checkout@v4
+      with:
+        fetch-depth: 0
+
+    # Install the .NET Core workload
+    - name: Install .NET Core
+      uses: actions/setup-dotnet@v4
+      with:
+        dotnet-version: 9.0.x
+
+    #Test dot net installation
+    - name: Check dotnet installation
+      run: dotnet --version        
+    
+    # Restore nuget packages
+    - name: Install-Dependencies
+      run: dotnet restore **/*.sln
+
+    # Build the solution
+    - name: Build
+      run: dotnet build /home/runner/work/Hann.Assesment/Hann.Assesment/src/Hann.Assesment.sln --configuration ${{ matrix.configuration }}
+
+    # Execute all unit tests in the solution
+    - name: Execute unit tests
+      run: dotnet test src/Hann.Assesment/Tests/TestProject1/Hahn.Assesment.Tests.csproj --logger trx --results-directory "TestResults-${{ matrix.configuration }}"
+
+    - name: Upload dotnet test results
+      uses: actions/upload-artifact@v4
+      with:
+        name: dotnet-results-${{ matrix.configuration }}
+        path: TestResults-${{ matrix.configuration }}
+          # Use always() to always run this step to publish test results when there are test failures
+      if: ${{ always() }}

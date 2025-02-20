@@ -45,6 +45,9 @@ app.MapStaticAssets();
 app.MapControllers();
 app.MapHangfireDashboard();
 
+// Waiting for hangfire server to start
+Thread.Sleep(5000);
+
 // Add hangfire recurring job to load alert data.
 app.AddHangfireAlertRecurringJob();
 
