@@ -21,4 +21,8 @@
     <ProjectReference Include="..\..\Core\Hahn.Assesment.Domain\Hahn.Assesment.Domain.csproj" />
   </ItemGroup>
 
+  <ItemGroup>
+    <Folder Include="Migrations\" />
+  </ItemGroup>
+
 </Project>

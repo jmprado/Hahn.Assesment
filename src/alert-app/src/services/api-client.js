@@ -1,7 +1,7 @@
 import axios from 'axios'
 import apiUrls from '../config/api-urls.js'
 
-const apiClient = axios.create({
+const useApiClient = axios.create({
   baseURL: import.meta.env.VITE_API_BASE_URL, // Use the environment variable for the base URL
   headers: {
     'Content-Type': 'application/json',
@@ -10,22 +10,22 @@ const apiClient = axios.create({
 
 export default {
   getAlerts() {
-    return apiClient.get(apiUrls.allAlerts)
+    return useApiClient.get(apiUrls.allAlerts)
   },
   getCurrentAlert() {
-    return apiClient.get(apiUrls.currentAlert)
+    return useApiClient.get(apiUrls.currentAlert)
   },
   getAlertById(alertId) {
     const url = setAlertId(apiUrls.alertById, alertId)
-    return apiClient.get(url)
+    return useApiClient.get(url)
   },
   getCategories(alertId) {
     const url = setAlertId(apiUrls.categories, alertId)
-    return apiClient.get(url)
+    return useApiClient.get(url)
   },
   getReports(alertId) {
     const url = setAlertId(apiUrls.reports, alertId)
-    return apiClient.get(url)
+    return useApiClient.get(url)
   },
 }
 
