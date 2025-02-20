@@ -6,6 +6,13 @@ import vueDevTools from 'vite-plugin-vue-devtools'
 
 // https://vite.dev/config/
 export default defineConfig({
+  globals: true,
+  environment: 'jsdom',
+  server: {
+    deps: {
+      inline: ['vuetify'],
+    },
+  },  
   plugins: [
     vue(),
     vueDevTools(),

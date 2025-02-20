@@ -72,9 +72,13 @@ This project contains multiple components, including a Vue.js application for di
     - Swagger UI: [https://localhost:7185/swagger/](https://localhost:7185/swagger/)
     - Hangfire Dashboard: [https://localhost:7144/hangfire/](https://localhost:7144/hangfire/)
 
+## GitHub Actions Workflow
+
+This project includes a GitHub Actions workflow for building and testing the .NET Core WebAPI. For more details, see the [dotnet.yml](./.github/workflows/dotnet.yml).
+
 ## Vue App
 
-For instructions to run the Vue app, see the Alert App [README.md](./src/alert-app/).
+For instructions to run the Vue app, see the Alert App README.
 
 ## Configuration
 
@@ -89,6 +93,10 @@ This file contains the API client for making HTTP requests to the Deutscher Wett
 ### `useAlertAppStore.js`
 
 This file contains the Pinia store for managing the state of the application.
+
+## Notes
+- No integration tests were added.
+- Missing unit tests: the test project was added to 
 
 ## Contributing
 

@@ -1,6 +1,6 @@
 <template>
   <main>
-    <BaseView title="Deutscher Wetterdienst - All Weather Alerts">
+    <BaseView title="Deutscher Wetterdienst - Weather Alerts">
       <AlertDetails />
     </BaseView>
   </main>
