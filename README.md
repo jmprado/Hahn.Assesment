@@ -74,7 +74,7 @@ This project contains multiple components, including a Vue.js application for di
 
 ## Vue App
 
-For instructions to run the Vue app, see the Alert App [./src/alert-app/README.md](README.md).
+For instructions to run the Vue app, see the Alert App [README.md](./src/alert-app/README.md).
 
 ## Configuration
 
