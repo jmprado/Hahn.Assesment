@@ -1,5 +1,5 @@
 <script setup>
-import AlertList from '../components/all-alerts/all-alerts.vue';
+import AlertList from '../components/all-alerts/all-alerts.vue'
 </script>
 <template>
   <v-sheet>
