@@ -1,8 +1,8 @@
 <template>
-  <div id="alert-reports">
-    <h3>All Alerts</h3>
+  <div>
+    <h2>All Alerts</h2>
     <div v-if="isLoading">
-      <p>Loading alert reports...</p>
+      <p>Loading...</p>
     </div>
     <div v-else>
       <ag-grid-vue :rowData="rowData" :columnDefs="colDefs" style="height: 500px"> </ag-grid-vue>
@@ -50,8 +50,8 @@ const fetchAlerts = async () => {
     } finally {
       isLoading.value = false
     }
-    return;
-  } 
+    return
+  }
 
   isLoading.value = false
 }

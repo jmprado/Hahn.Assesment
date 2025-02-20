@@ -1,5 +1,5 @@
 <template>
-  <div id="alert-categories">
+  <div :class="styles.margin20">
     <h3>Weather conditions in this alert</h3>
     <div v-if="isLoading">
       <p>Loading alert categories...</p>
@@ -19,6 +19,7 @@
 import { ref, onMounted } from 'vue'
 import apiClient from '@/services/api-client'
 import useAlertAppStore from '@/store/useAlertAppStore'
+import styles from './styles.module.css'
 
 const store = useAlertAppStore()
 

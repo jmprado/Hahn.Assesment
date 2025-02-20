@@ -1,17 +1,11 @@
+<template>
+  <main>
+    <BaseView title="Deutscher Wetterdienst - All Weather Alerts">
+      <AlertList />
+    </BaseView>
+  </main>
+</template>
 <script setup>
 import AlertList from '../components/all-alerts/all-alerts.vue'
+import BaseView from '../views/base-view.vue'
 </script>
-<template>
-  <v-sheet>
-    <v-container class="pa-0">
-      <v-app>
-        <v-app-bar title="Deutscher Wetterdienst - All Weather Alerts"></v-app-bar>
-        <v-main>
-          <v-container>
-            <AlertList />
-          </v-container>
-        </v-main>
-      </v-app>
-    </v-container>
-  </v-sheet>
-</template>
