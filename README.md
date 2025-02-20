@@ -1,15 +1,32 @@
-# Alert App
+# Hahn Assessment Project
 
-This is a Vue.js application that displays weather alerts from the Deutscher Wetterdienst. The application includes a grid to display weather reports and an overlay to show detailed images of the alerts.
+This project contains multiple components, including a Vue.js application for displaying weather alerts and a SQL Server Docker container for managing the database.
+
+## Tech Stack
+
+- **Frontend**: Vue.js, Vuetify
+- **Backend**: .NET 9.0, Entity Framework Core, Hangfire
+- **Database**: SQL Server (Docker container)
+- **Build Tools**: Docker, Docker Compose
+- **Task Runner**: PowerShell, Batch scripts
 
 ## Table of Contents
 
+- [Requirements](#requirements)
 - [Installation](#installation)
 - [Usage](#usage)
 - [Components](#components)
 - [Configuration](#configuration)
 - [Contributing](#contributing)
 - [License](#license)
+
+## Requirements
+
+- Node.js and npm
+- .NET SDK 9.0
+- Docker and Docker Compose
+- PowerShell (for running the PowerShell script)
+- A modern web browser (e.g., Chrome, Firefox)
 
 ## Installation
 
@@ -22,46 +39,42 @@ This is a Vue.js application that displays weather alerts from the Deutscher Wet
 2. Navigate to the project directory:
 
     ```bash
-    cd ./.dbcontauner alert-app
+    cd alert-app
     ```
 
-3. Install the dependencies:
+## Installation and Usage
+
+### Installation
+
+1. Start the SQL Server container:
 
     ```bash
-    npm install
+    ./.dbcontainer/build.bat
     ```
 
-## Usage
-
-1. Start the development server:
+2. Initialize the database migration:
 
     ```bash
-    npm run dev
+    ./src/init-migration.bat MigrationName
     ```
 
-2. Open your browser and navigate to `http://localhost:8080`.
+    Replace `MigrationName` with the name of your migration.
 
-## Components
+### Usage
 
-### `BaseView.vue`
+1. Start the netcore services:
 
-This component serves as a base layout for other views. It includes a `v-app-bar` that displays a title passed as a prop.
+    ```powershell
+    ./src/start-services.ps1
+    ```
 
-### `HomePage.vue`
+1.1. If the application does not open the .NET Core applications in Chrome automatically, please open your browser and navigate to the following URLs:
+    - Swagger UI: [https://localhost:7185/swagger/](https://localhost:7185/swagger/)
+    - Hangfire Dashboard: [https://localhost:7144/hangfire/](https://localhost:7144/hangfire/)
 
-This is the home page of the application. It uses the `BaseView` component and includes the `AlertDetails` component to display detailed information about the alerts.
+## Vue App
 
-### `AlertDetails.vue`
-
-This component displays detailed information about a specific weather alert, including categories and reports.
-
-### `AlertReports.vue`
-
-This component displays a grid of weather reports using the `ag-grid-vue3` component. It also includes an overlay to show detailed images of the alerts.
-
-### `AlertImage.vue`
-
-This component displays an image of the alert in the overlay.
+For instructions to run the Vue app, see the Alert App [./src/alert-app/README.md](README.md).
 
 ## Configuration
 
