@@ -1,35 +1,88 @@
-# alert-app
+# Alert App
 
-This template should help get you started developing with Vue 3 in Vite.
+This is a Vue.js application that displays weather alerts from the Deutscher Wetterdienst. The application includes a grid to display weather reports and an overlay to show detailed images of the alerts.
 
-## Recommended IDE Setup
+In addition the application provided a view that shows the previous alerts where you can pick one to view its details.
 
-[VSCode](https://code.visualstudio.com/) + [Volar](https://marketplace.visualstudio.com/items?itemName=Vue.volar) (and disable Vetur).
+## Table of Contents
 
-## Customize configuration
+- [Installation](#installation)
+- [Usage](#usage)
+- [Components](#components)
+- [Configuration](#configuration)
+- [Contributing](#contributing)
+- [License](#license)
 
-See [Vite Configuration Reference](https://vite.dev/config/).
+## Installation
 
-## Project Setup
+1. Clone the repository:
 
-```sh
-npm install
-```
+    ```bash
+    git clone https://github.com/your-username/alert-app.git
+    ```
 
-### Compile and Hot-Reload for Development
+2. Navigate to the project directory:
 
-```sh
-npm run dev
-```
+    ```bash
+    cd ./src/alert-app
+    ```
 
-### Compile and Minify for Production
+3. Install the dependencies:
 
-```sh
-npm run build
-```
+    ```bash
+    npm install
+    ```
 
-### Lint with [ESLint](https://eslint.org/)
+## Usage
 
-```sh
-npm run lint
-```
+1. Start the development server:
+
+    ```bash
+    npm run dev
+    ```
+
+2. Open your browser and navigate to `http://localhost:5173`.
+
+## Components
+
+### `BaseView.vue`
+
+This component serves as a base layout for other views. It includes a `v-app-bar` that displays a title passed as a prop.
+
+### `HomePage.vue`
+
+This is the home page of the application. It uses the `BaseView` component and includes the `AlertDetails` component to display detailed information about the alerts.
+
+### `AlertDetails.vue`
+
+This component displays detailed information about a specific weather alert, including categories and reports.
+
+### `AlertReports.vue`
+
+This component displays a grid of weather reports using the `ag-grid-vue3` component. It also includes an overlay to show detailed images of the alerts.
+
+### `AlertImage.vue`
+
+This component displays an image of the alert in the overlay.
+
+## Configuration
+
+### `api-urls.js`
+
+This file defines the API endpoints for fetching weather alerts and reports.
+
+### `api-client.js`
+
+This file contains the API client for making HTTP requests to the Deutscher Wetterdienst API.
+
+### `useAlertAppStore.js`
+
+This file contains the Pinia store for managing the state of the application.
+
+## Contributing
+
+Contributions are welcome! Please open an issue or submit a pull request.
+
+## License
+
+This project is licensed under the MIT License.
