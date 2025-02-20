@@ -30,9 +30,7 @@
     "eslint-plugin-vue": "^9.32.0",
     "pinia": "^3.0.1",
     "prettier": "^3.5.1",
-    "resize-observer-polyfill": "^1.5.1",
     "vite": "^6.1.0",
-    "vite-plugin-vue-devtools": "^7.7.2",
-    "vitest": "^3.0.6"
+    "vite-plugin-vue-devtools": "^7.7.2"
   }
 }

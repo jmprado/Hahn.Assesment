@@ -94,13 +94,9 @@ This file contains the API client for making HTTP requests to the Deutscher Wett
 
 This file contains the Pinia store for managing the state of the application.
 
-## Notes
-- No integration tests were added.
-- Missing unit tests: the test project was added to 
-
 ## Contributing
 
-Contributions are welcome! Please open an issue or submit a pull request.
+Contributions are welcome! Please open an issue or submit a pull request. :wink:
 
 ## License
 
