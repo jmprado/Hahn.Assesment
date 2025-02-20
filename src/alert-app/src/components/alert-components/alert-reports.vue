@@ -1,11 +1,11 @@
 <template>
-  <div id="alert-reports">
+  <div :class="styles.margin20">
     <h3>Weather Report</h3>
     <div v-if="isLoading">
       <p>Loading alert reports...</p>
     </div>
     <div v-else>
-      <ag-grid-vue :rowData="rowData" :columnDefs="colDefs" style="height: 500px"> </ag-grid-vue>
+      <ag-grid-vue :rowData="rowData" :columnDefs="colDefs" class="grid-height"> </ag-grid-vue>
       <v-overlay :model-value="toggleImage" class="overlay-center" @click="hideImage">
         <alert-image
           :imageData="cellData"
@@ -25,6 +25,7 @@ import { MutationType } from 'pinia'
 import alertImage from './alert-image.vue'
 import useAlertAppStore from '@/store/useAlertAppStore'
 import apiClient from '@/services/api-client'
+import styles from './styles.module.css'
 
 import {
   ModuleRegistry,
@@ -128,10 +129,6 @@ const colDefs = [
 </script>
 
 <style scoped>
-#alert-categories {
-  margin-top: 20px;
-}
-
 .overlay-center {
   display: flex;
   justify-content: center;
@@ -145,5 +142,9 @@ const colDefs = [
   background: white;
   padding: 20px;
   border-radius: 10px;
+}
+
+.grid-height {
+  height: 500px;
 }
 </style>
