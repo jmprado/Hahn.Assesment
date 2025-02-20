@@ -1,4 +1,5 @@
-﻿using Hahn.Assesment.Domain.Entities;
+﻿using Hahn.Assesment.Domain.AlertApi;
+using Hahn.Assesment.Domain.Entities;
 
 namespace Hahn.Assesment.Persistence.Repositories.AlertRepository
 {
@@ -7,5 +8,6 @@ namespace Hahn.Assesment.Persistence.Repositories.AlertRepository
         Task<AlertEntity?> GetCurrentAlertAsync();
         Task<AlertEntity?> GetAlertByIdAsync(Guid id);
         Task<IEnumerable<AlertEntity>> GetAlertsAsync();
+        Task<Guid> AddAlertAsync(AlertApiModel alertApíModel);
     }
 }
