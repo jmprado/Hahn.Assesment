@@ -16,6 +16,12 @@ namespace Hahn.Assesment.WebAPI.Controllers
             _logger = logger;
         }
 
+        [HttpGet("alerts")]
+        public async Task<IActionResult> GetAlertsAsync()
+        {
+            var alerts = await _alertAppService.GetAlertsAsync();
+            return Ok(alerts);
+        }
 
         [HttpGet("current-alert")]
         public async Task<IActionResult> GetCurrentAlertAsync()
@@ -27,6 +33,18 @@ namespace Hahn.Assesment.WebAPI.Controllers
                 return new NotFoundObjectResult("No Alert found");
             }
 
+            return Ok(alert);
+        }
+
+        [HttpGet("{id}")]
+        public async Task<IActionResult> GetAlertsAsync(Guid id)
+        {
+            var alert = await _alertAppService.GetAlertByIdAsync(id);
+            if (alert == null)
+            {
+                _logger.LogInformation("No alert found in database");
+                return new NotFoundObjectResult("No Alert found");
+            }
             return Ok(alert);
         }
 

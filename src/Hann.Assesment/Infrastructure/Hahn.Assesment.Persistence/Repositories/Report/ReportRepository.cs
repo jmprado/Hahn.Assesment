@@ -22,7 +22,8 @@ namespace Hahn.Assesment.Persistence.Repositories.Report
         public async Task<IEnumerable<AlertReport>> GetAlertReportsAsync(Guid alertId)
         {
             return await _context.AlertReports
-                .OrderBy(r => r.ReportDate)
+                .AsNoTracking()
+                .OrderByDescending(r => r.ReportDate)
                 .Where(r => r.AlertId == alertId)
                 .ToListAsync();
         }

@@ -17,6 +17,12 @@ namespace Hahn.Assesment.Persistence.Repositories.AlertRepository
             _mapper = mapper;
         }
 
+        /// <summary>
+        /// Add alert to the database
+        /// </summary>
+        /// <param name="alertApíModel"></param>
+        /// <returns></returns>
+        /// <exception cref="ArgumentNullException"></exception>
         public async Task<Guid> AddAlertAsync(AlertApiModel alertApíModel)
         {
             if (alertApíModel == null)
@@ -29,23 +35,41 @@ namespace Hahn.Assesment.Persistence.Repositories.AlertRepository
             return alert.Id;
         }
 
+        /// <summary>
+        /// Get the current alert
+        /// </summary>
+        /// <returns></returns>
         public async Task<AlertEntity?> GetCurrentAlertAsync()
         {
-            return await _context.Alerts.OrderByDescending(o => o.UpdatedAt).FirstOrDefaultAsync();
+            return await _context.Alerts
+                .AsNoTracking()
+                .OrderByDescending(o => o.UpdatedAt)
+                .FirstOrDefaultAsync();
         }
 
-        public async Task<IEnumerable<AlertEntity>> GetAlertsAsync(DateTime dateStart)
+        /// <summary>
+        /// Get a list of all alerts available
+        /// </summary>
+        /// <param name="dateStart"></param>
+        /// <returns></returns>
+        public async Task<IEnumerable<AlertEntity>> GetAlertsAsync()
         {
             return await _context.Alerts
-                .Where(a => a.Start >= dateStart)
+                .AsNoTracking()
+                .OrderByDescending(o => o.UpdatedAt)
                 .ToListAsync();
         }
 
-        public async Task<IEnumerable<AlertEntity>> GetAlertsAsync(DateTime dateStart, DateTime dateEnd)
+        /// <summary>
+        /// Get alert by id
+        /// </summary>
+        /// <param name="id"></param>
+        /// <returns></returns>
+        public async Task<AlertEntity?> GetAlertByIdAsync(Guid id)
         {
             return await _context.Alerts
-                .Where(a => a.Start >= dateStart && a.End <= dateEnd)
-                .ToListAsync();
+                .AsNoTracking()
+                .FirstOrDefaultAsync(f => f.Id == id);
         }
     }
 }

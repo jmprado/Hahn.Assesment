@@ -16,6 +16,7 @@ namespace Hahn.Assesment.Persistence.Repositories.Category
         public async Task<IEnumerable<string>> GetCategoriesAsync(Guid alertId)
         {
             return await _context.AlertCategories
+                .AsNoTracking()
                 .Where(w => w.AlertId == alertId)
                 .GroupBy(g => g.Category)
                 .Select(s => s.Key)
