@@ -25,4 +25,3 @@ RUN echo 'export PATH="$PATH:/opt/mssql-tools18/bin"' >> ~/.bashrc
 
 # Switch back to mssql user and run the entrypoint script
 USER mssql
-

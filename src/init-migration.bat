@@ -3,7 +3,10 @@
 
 REM Check if a parameter is provided
 IF "%1"=="" (
-    ECHO Please provide a migration name.
+    ECHO:
+    ECHO Error: Please provide a migration name. 
+    ECHO Usage: init-migration.bat MigrationName
+    ECHO:
     EXIT /B 1
 )
 

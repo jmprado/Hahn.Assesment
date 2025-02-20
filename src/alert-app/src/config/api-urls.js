@@ -1,4 +1,4 @@
-const controller = '/alert';
+const controller = '/alert'
 
 const apiUrls = {
   alertById: `${controller}/{alertId}`,
@@ -6,6 +6,6 @@ const apiUrls = {
   currentAlert: `${controller}/current-alert`,
   categories: `${controller}/{alertId}/categories`,
   reports: `${controller}/{alertId}/reports`,
-};
+}
 
-export default apiUrls;
+export default apiUrls

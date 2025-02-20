@@ -24,7 +24,7 @@ namespace Hahn.Assesment.Infrastructure
         {
             if (!optionsBuilder.IsConfigured)
             {
-                var connectionString = _configuration.GetConnectionString("AlertAppDb");
+                var connectionString = _configuration.GetConnectionString("AlertDb");
                 optionsBuilder.UseSqlServer(connectionString);
             }
         }
