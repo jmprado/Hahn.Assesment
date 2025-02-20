@@ -11,13 +11,13 @@ export const useAlertAppStore = () => {
     },
     setters: {
       setAlertId(id) {
-        this.alertId = id
+        this.alertId = id;
       },
       setGridFilter(filter) {
-        this.gridFilter = filter
+        this.gridFilter = filter;
       },
       setAlertImage(image) {
-        this.alertImage = image
+        this.alertImage = image;
       },
     },
     actions: {
