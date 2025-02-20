@@ -7,10 +7,8 @@
         <div v-else>
             <ag-grid-vue :rowData="rowData" :columnDefs="colDefs" style="height: 500px">
             </ag-grid-vue>
-            <v-overlay :model-value="toggleImage" class="overlay-center">
-                <div class="image-container">
-                    <alert-image :imageData="cellData" />
-                </div>
+            <v-overlay :model-value="toggleImage" class="overlay-center" @click="hideImage">
+                <alert-image :imageData="cellData" :place="rowData.place" :like-count="rowData.likeCount" :imageClose="hideImage" />
             </v-overlay>
         </div>
     </div>
@@ -29,13 +27,6 @@ import {
     ColumnAutoSizeModule,
     RowAutoHeightModule,
     RowStyleModule,
-    PaginationModule,
-    TextFilterModule,
-    NumberFilterModule,
-    DateFilterModule,
-    CustomFilterModule,
-    ExternalFilterModule,
-    QuickFilterModule,
     ClientSideRowModelModule,
 } from 'ag-grid-community';
 
@@ -43,13 +34,6 @@ ModuleRegistry.registerModules([
     ColumnAutoSizeModule,
     RowAutoHeightModule,
     RowStyleModule,
-    PaginationModule,
-    TextFilterModule,
-    NumberFilterModule,
-    DateFilterModule,
-    CustomFilterModule,
-    ExternalFilterModule,
-    QuickFilterModule,
     ClientSideRowModelModule,
 ]);
 
@@ -86,7 +70,6 @@ const filterReports = (gridFilter) => {
         reportsFiltered.value = reports.value;
         return;
     }
-
     reportsFiltered.value = reports.value.filter(item => item.category === gridFilter || gridFilter === "All");
 };
 
@@ -99,10 +82,13 @@ const watchGridFilterSate = () => {
 };
 
 const showImage = (data) => {
-    console.log('data:', data);
-    cellData.value = data;
-    toggleImage.value = !toggleImage.value;
+    toggleImage.value = true;
+    cellData.value = data;    
 };
+
+const hideImage = () => {
+    toggleImage.value = false;
+}
 
 const colDefs = [
     { field: 'reportDate' },
@@ -126,7 +112,7 @@ const colDefs = [
             return 'N/A';
         },
         onCellClicked: function (params) {
-            if(params.data.imageUrl) 
+            if (params.data.imageUrl)
                 showImage(params.data);
         },
     },

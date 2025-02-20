@@ -6,8 +6,8 @@ namespace Hahn.Assesment.Persistence.Repositories.AlertRepository
     public interface IAlertRepository
     {
         Task<AlertEntity?> GetCurrentAlertAsync();
-        Task<IEnumerable<AlertEntity>> GetAlertsAsync(DateTime dateStart);
-        Task<IEnumerable<AlertEntity>> GetAlertsAsync(DateTime dateStart, DateTime dateEnd);
-        Task<Guid> AddAlertAsync(AlertApiModel alertApiModel);
+        Task<AlertEntity?> GetAlertByIdAsync(Guid id);
+        Task<IEnumerable<AlertEntity>> GetAlertsAsync();
+        Task<Guid> AddAlertAsync(AlertApiModel alertApíModel);
     }
 }

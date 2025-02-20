@@ -26,6 +26,13 @@ public class AlertAppService : IAlertAppService
         _mapper = mapper;
     }
 
+    public async Task<IEnumerable<AlertDto>> GetAlertsAsync()
+    {
+        var alertsData = await _alertRepository.GetAlertsAsync();
+        var alertsDto = _mapper.Map<IEnumerable<AlertDto>>(alertsData);
+        return alertsDto;
+    }
+
     public async Task<AlertDto> GetCurrentAlertAsync()
     {
         var alertData = await _alertRepository.GetCurrentAlertAsync();
@@ -43,5 +50,12 @@ public class AlertAppService : IAlertAppService
         var reports = await _reportRepository.GetAlertReportsAsync(alertId);
         var reportsDto = _mapper.Map<IEnumerable<AlertReportDto>>(reports);
         return reportsDto;
+    }
+
+    public async Task<AlertDto?> GetAlertByIdAsync(Guid guid)
+    {
+        var alert = await _alertRepository.GetAlertByIdAsync(guid);
+        var alertDto = _mapper.Map<AlertDto>(alert);
+        return alertDto;
     }
 }

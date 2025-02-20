@@ -16,6 +16,18 @@ builder.Logging.AddSerilog(logger);
 // Refer to Core/Application/Middleware/ServiceExtensions.cs for adding/modify services
 builder.Services.ConfigureApplication(builder.Configuration);
 
+// CORS
+var allowedOrigins = builder.Configuration.GetSection("AlertApiSettings:CorsAllowedOrigins").Get<string>();
+if (string.IsNullOrEmpty(allowedOrigins))
+    throw new ArgumentNullException("AlertApiSettings.CorsAllowedOrigins is not configured.");
+
+
+var corsPolicyName = "ApiCorsPolicy";
+builder.Services.AddCors(options => options.AddPolicy(corsPolicyName, builder =>
+{
+    builder.WithOrigins(allowedOrigins!).AllowAnyMethod().AllowAnyHeader();
+}));
+
 builder.Services.AddRouting(options => options.LowercaseUrls = true);
 
 // Add services to the container.
@@ -47,6 +59,6 @@ app.UseAuthorization();
 
 app.MapControllers();
 
-app.UseCors();
+app.UseCors(corsPolicyName);
 
 app.Run();
