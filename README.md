@@ -3,7 +3,7 @@
 This project contains multiple components, including a Vue.js application for displaying weather alerts and a SQL Server Docker container for managing the database.
 
 ## Public API Data Source
-- External API URL [Deutscher Wetterdienst: API](https://dwd.api.bund.dev/)
+- External API URL: [Deutscher Wetterdienst: API](https://dwd.api.bund.dev/)
 - Method URL: [v16/crowd_meldungen_overview_v2.json](https://s3.eu-central-1.amazonaws.com/app-prod-static.warnwetter.de/v16/crowd_meldungen_overview_v2.json)
 
 
@@ -11,8 +11,8 @@ This project contains multiple components, including a Vue.js application for di
 
 - **Frontend**: Vue.js, Vuetify
 - **Backend**: .NET 9.0, Entity Framework Core, Hangfire
-- **Database**: SQL Server (Docker container)
 - **Build Tools**: Docker, Docker Compose
+- **Database**: SQL Server (Docker container)
 - **Task Runner**: PowerShell, Batch scripts
 
 ## Table of Contents
