@@ -51,7 +51,7 @@ This project contains multiple components, including a Vue.js application for di
     cd Hahn.Assesment
     ```
 
-3. Make sure that your docker desktop is started and run
+3. Make sure that your docker desktop is started then run
     
     ```powershell
     ./run-app.ps1
