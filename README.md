@@ -52,13 +52,11 @@ This project contains multiple components, including a Vue.js application for di
     ./.dbcontainer/build.bat
     ```
 
-2. Initialize the database migration:
+2. Create the migrations and init the database:
 
     ```bash
-    ./src/init-migration.bat MigrationName
+    ./src/init-migration.ps1 init_migration
     ```
-
-    Replace `MigrationName` with the name of your migration.
 
 ### Usage
 

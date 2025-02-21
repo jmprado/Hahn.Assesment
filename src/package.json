@@ -12,7 +12,6 @@
     "test:e2e": "npx playwright test"
   },
   "dependencies": {
-    "alert-app": "file:..",
     "axios": "^1.7.9",
     "vue": "^3.5.13",
     "vue-router": "^4.5.0",
