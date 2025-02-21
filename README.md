@@ -22,75 +22,50 @@ This project contains multiple components, including a Vue.js application for di
 
 ## Requirements
 
-- Node.js and npm
+- Windows >10 
+- Node.js 22.11 and npm
 - .NET SDK 9.0
 - Docker and Docker Compose
 - PowerShell (for running the PowerShell script)
-- A modern web browser (e.g., Chrome, Firefox)
+- Chrome web browser (e.g., Chrome, Firefox)
 
-## Installation
+## Installation and Easy Way
 
 1. Clone the repository:
 
-    ```bash
-    git clone https://github.com/your-username/alert-app.git
+    ```powershell
+    git clone https://github.com/jmprado/Hahn.Assesment.git
     ```
 
 2. Navigate to the project directory:
 
-    ```bash
-    cd alert-app
-    ```
-
-## Installation and Usage
-
-### Installation
-
-1. Start the SQL Server container:
-
-    ```bash
-    ./.dbcontainer/build.bat
-    ```
-
-2. Create the migrations and init the database:
-
-    ```bash
-    ./src/init-migration.ps1 init_migration
-    ```
-
-### Usage
-
-1. Start the netcore services:
+     Open a PowerShell terminal
 
     ```powershell
-    ./src/start-services.ps1
+    cd Hahn.Assesment
+    ```
+3. Make sure that your docker desktop is up and running and run
+    
+    ```powershell
+    ./run-app.ps1
     ```
 
-1.1. If the application does not open the .NET Core applications in Chrome automatically, please open your browser and navigate to the following URLs:
-    - Swagger UI: [https://localhost:7185/swagger/](https://localhost:7185/swagger/)
-    - Hangfire Dashboard: [https://localhost:7144/hangfire/](https://localhost:7144/hangfire/)
+4. Opening the AlertApp
+
+    Open browser and navigate to https://localhost:5173
+
+5. Notes
+
+## Application URLs on this project 
+
+- Swagger UI: [https://localhost:7185/swagger](https://localhost:7185/swagger)
+- Hangfire Dashboard: [https://localhost:7144/hangfire](https://localhost:7144/hangfire)
+- Vue App: [https://localhost:5173](https://localhost:5173)
+
 
 ## GitHub Actions Workflow
 
 This project includes a GitHub Actions workflow for building and testing the .NET Core WebAPI. For more details, see the [dotnet.yml](./.github/workflows/dotnet.yml).
-
-## Vue App
-
-For instructions to run the Vue app, see the Alert App README.
-
-## Configuration
-
-### `api-urls.js`
-
-This file defines the API endpoints for fetching weather alerts and reports.
-
-### `api-client.js`
-
-This file contains the API client for making HTTP requests to the Deutscher Wetterdienst API.
-
-### `useAlertAppStore.js`
-
-This file contains the Pinia store for managing the state of the application.
 
 ## Contributing
 
