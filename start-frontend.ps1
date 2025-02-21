@@ -12,5 +12,3 @@ if ($errors_npm_install.Length -gt 0) {
 Write-Output "Run application..."
 powershell.exe -Command "cd `"$alert_app_path`" `n npm run dev"
 
-Write-Output "Opening browser..."
-Start-Process "chrome" "https://localhost:5173"
