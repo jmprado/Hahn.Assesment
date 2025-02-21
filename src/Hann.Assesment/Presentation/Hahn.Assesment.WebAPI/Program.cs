@@ -51,8 +51,6 @@ if (app.Environment.IsDevelopment())
     app.MapOpenApi();
 }
 
-app.MapControllers();
-
 app.UseHttpsRedirection();
 
 app.MapControllers();

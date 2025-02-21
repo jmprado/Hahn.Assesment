@@ -40,7 +40,7 @@ jobs:
 
     # Build the solution
     - name: Build
-      run: dotnet build /home/runner/work/Hann.Assesment/Hann.Assesment/src/Hann.Assesment.sln --configuration ${{ matrix.configuration }}
+      run: dotnet build /home/runner/work/Hahn.Assesment/Hahn.Assesment/src/Hann.Assesment.sln --configuration ${{ matrix.configuration }}
 
     # Execute all unit tests in the solution
     - name: Execute unit tests
