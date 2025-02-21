@@ -2,6 +2,11 @@
 
 This project contains multiple components, including a Vue.js application for displaying weather alerts and a SQL Server Docker container for managing the database.
 
+## Public API Data Source
+- External API URL [Deutscher Wetterdienst: API](https://dwd.api.bund.dev/)
+- Method URL: [v16/crowd_meldungen_overview_v2.json](https://s3.eu-central-1.amazonaws.com/app-prod-static.warnwetter.de/v16/crowd_meldungen_overview_v2.json)
+
+
 ## Tech Stack
 
 - **Frontend**: Vue.js, Vuetify
@@ -12,11 +17,11 @@ This project contains multiple components, including a Vue.js application for di
 
 ## Table of Contents
 
+- [Public API Data Source](#public-api-data-source)
 - [Requirements](#requirements)
 - [Installation and Usage](#installation-and-usage)
 - [Application URLs](#application-urls)
 - [GitHub Actions Workflow](#github-actions-workflow)
-- [References](#references)
 - [Contributing](#contributing)
 - [License](#license)
 
@@ -66,15 +71,7 @@ This project contains multiple components, including a Vue.js application for di
 
 This project includes a GitHub Actions workflow for building and testing the .NET Core WebAPI. For more details, see the dotnet.yml.
 
-> Check the github actions tab to see the ran actions
-
-## References
-
-- External API URL [Deutscher Wetterdienst: API](https://dwd.api.bund.dev/)
-    - Method URL: [v16/crowd_meldungen_overview_v2.json](https://s3.eu-central-1.amazonaws.com/app-prod-static.warnwetter.de/v16/crowd_meldungen_overview_v2.json)
-
-
-
+> Check the GitHub Actions tab to see the actions that have been run.
 
 ## Contributing
 
