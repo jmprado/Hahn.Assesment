@@ -4,8 +4,6 @@ Hey there! Welcome to the Hahn Assessment Project - Alert App. 🚀
 
 This application fetches and displays data provided by the Deutscher Wetterdienst public [API](https://dwd.api.bund.dev/).
 
-You can find the complete API documentation here.
-
 The data source chosen is the `crowd_meldungen_overview_v2.json` file. You can check it out using the link below:
 
 Heads up! This is a JSON file: [crowd_meldungen_overview_v2.json](https://s3.eu-central-1.amazonaws.com/app-prod-static.warnwetter.de/v16/crowd_meldungen_overview_v2.json) 
