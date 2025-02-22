@@ -23,7 +23,7 @@ Projects that provides Clean Architecture and DDD:
 - [Infrastructure](./src/Hann.Assesment/Infrastructure/)
 
 ## Extra services/projects
-- [SqlServer Container](./src/.dbcontainer/)
+- [SqlServer Container](./src/dbcontainer/)
 - [Unit Tests](./src/Hann.Assesment/Tests/)
 - [CI](./.github/workflows/dotnet.yml)
 
