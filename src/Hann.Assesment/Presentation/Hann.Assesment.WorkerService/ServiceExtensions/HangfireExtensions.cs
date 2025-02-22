@@ -7,7 +7,7 @@ namespace Hahn.Assesment.WorkerService.ServiceExtensions
         public static void AddHangfireAlertRecurringJob(this IApplicationBuilder app)
         {
             using var scope = app.ApplicationServices.CreateScope();
-            var loadAlertJob = scope.ServiceProvider.GetRequiredService<IJobsWorker>();
+            var loadAlertJob = scope.ServiceProvider.GetRequiredService<IJobScheduling>();
             loadAlertJob?.AddAlertRecurringJob();
         }
     }

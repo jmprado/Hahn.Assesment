@@ -1,6 +1,6 @@
-﻿namespace Hahn.Assesment.Domain.Entities;
+﻿namespace Hahn.Assesment.Domain.Models.Entities;
 
-public class AlertCategory
+public class CategoryEntity
 {
     public Guid Id { get; set; }
     public required string Category { get; set; }

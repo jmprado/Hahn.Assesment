@@ -1,6 +1,6 @@
 ﻿using AutoMapper;
-using Hahn.Assesment.Domain.AlertApi;
-using Hahn.Assesment.Domain.Entities;
+using Hahn.Assesment.Domain.Models.AlertApi;
+using Hahn.Assesment.Domain.Models.Entities;
 
 namespace Hahn.Assesment.Application.Mapping;
 
@@ -8,7 +8,7 @@ public class AlertApiProfile : Profile
 {
     public AlertApiProfile()
     {
-        CreateMap<AlertReportApiModel, AlertReport>()
+        CreateMap<ReportModel, ReportEntity>()
             .ForMember(dest => dest.Id, opt => opt.Ignore())
             .ForMember(dest => dest.ReportId, opt => opt.MapFrom(src => src.MeldungId))
             .ForMember(dest => dest.ReportDate, opt => opt.MapFrom(src => GetDateTimeFromTimestamp(src.Timestamp)))
@@ -16,13 +16,13 @@ public class AlertApiProfile : Profile
             .ForMember(dest => dest.AlertId, opt => opt.Ignore())
             .ForMember(dest => dest.Alerts, opt => opt.Ignore());
 
-        CreateMap<AlertCategoryApiModel, AlertCategory>()
+        CreateMap<CategoryModel, CategoryEntity>()
             .ForMember(dest => dest.Category, opt => opt.MapFrom(src => src.Category))
             .ForMember(dest => dest.Condition, opt => opt.MapFrom(src => src.Auspraegung))
             .ForMember(dest => dest.AlertId, opt => opt.Ignore())
             .ForMember(dest => dest.Alerts, opt => opt.Ignore());
 
-        CreateMap<AlertApiModel, AlertEntity>()
+        CreateMap<AlertModel, AlertEntity>()
             .ForMember(dest => dest.Id, opt => opt.Ignore())
             .ForMember(dest => dest.UpdatedAt, opt => opt.MapFrom(src => DateTime.Now))
             .ForMember(dest => dest.Start, opt => opt.MapFrom(src => GetDateTimeFromTimestamp(src.Start)))

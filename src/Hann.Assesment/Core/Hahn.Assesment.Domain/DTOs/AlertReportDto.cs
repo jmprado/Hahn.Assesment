@@ -1,4 +1,4 @@
-﻿namespace Hahn.Assesment.Application.DTOs;
+﻿namespace Hahn.Assesment.Domain.DTOs;
 
 public class AlertReportDto
 {

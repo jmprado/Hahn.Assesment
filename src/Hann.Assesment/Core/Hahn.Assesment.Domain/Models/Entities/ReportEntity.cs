@@ -1,6 +1,6 @@
-﻿namespace Hahn.Assesment.Domain.Entities;
+﻿namespace Hahn.Assesment.Domain.Models.Entities;
 
-public class AlertReport
+public class ReportEntity
 {
     public Guid Id { get; set; }
     public int ReportId { get; set; }

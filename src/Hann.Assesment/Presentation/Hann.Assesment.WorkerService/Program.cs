@@ -1,3 +1,4 @@
+using Hahn.Assesment.Hangfire;
 using Hahn.Assesment.WorkerService.ServiceExtensions;
 using Hangfire;
 using Microsoft.EntityFrameworkCore;
@@ -12,13 +13,13 @@ builder.Services.AddControllersWithViews();
 // <see cref="Hahn.Assesment.Application.Middleware.ServiceExtensions"/>
 builder.Services.ConfigureApplication(builder.Configuration);
 
-var _hangfireDbName = builder.Configuration.GetValue<string>("HangfireDbName");
-if (_hangfireDbName == null)
-    throw new ArgumentException("HangfireDbName value not found in appsettings.json.");
+var hangfireConnString = builder.Configuration.GetConnectionString("Hangfire");
+if (string.IsNullOrEmpty(hangfireConnString))
+    throw new ArgumentException("Hangfire connection string not found in appsettings.json.");
 
 builder.Services.AddHangfire((serviceProvider, config) =>
 {
-    config.UseSqlServerStorage(builder.Configuration.GetConnectionString(_hangfireDbName));
+    config.UseSqlServerStorage(hangfireConnString);
     config.SetDataCompatibilityLevel(CompatibilityLevel.Version_180);
     config.UseSimpleAssemblyNameTypeSerializer();
     config.UseRecommendedSerializerSettings();
@@ -45,10 +46,13 @@ app.MapStaticAssets();
 app.MapControllers();
 app.MapHangfireDashboard();
 
-// Waiting for hangfire server to start
-Thread.Sleep(5000);
-
 // Add hangfire recurring job to load alert data.
-app.AddHangfireAlertRecurringJob();
+AddHangfireAlertRecurringJob();
 
 app.Run();
+
+void AddHangfireAlertRecurringJob()
+{
+    var loadAlertJob = app.Services.CreateScope().ServiceProvider.GetRequiredService<IJobScheduling>();
+    loadAlertJob?.AddAlertRecurringJob();
+}

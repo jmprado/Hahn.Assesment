@@ -1,21 +1,21 @@
-﻿using Hahn.Assesment.Domain.AlertApi;
+﻿using Hahn.Assesment.Domain.Models.AlertApi;
 using Microsoft.Extensions.Options;
 using Newtonsoft.Json;
 using System.Net;
 using System.Net.Http.Headers;
 
-namespace Hahn.Assesment.Persistence.Services.AlertApi
+namespace Hahn.Assesment.Persistence.ExternalServices.AlertApi
 {
-    public class AlertApiService : IAlertApiService
+    public class ApiService : IApiService
     {
-        private readonly AlertApiSettings _alertApiSettings;
+        private readonly ApiSettings _alertApiSettings;
 
-        public AlertApiService(IOptions<AlertApiSettings> options)
+        public ApiService(IOptions<ApiSettings> options)
         {
             _alertApiSettings = options.Value;
         }
 
-        public async Task<AlertApiModel?> GetAlertDataAsync()
+        public async Task<AlertModel?> GetAlertDataAsync()
         {
             try
             {
@@ -30,7 +30,7 @@ namespace Hahn.Assesment.Persistence.Services.AlertApi
                 var response = await client.GetAsync(new Uri(_alertApiSettings.AlertEndpointUrl));
                 response.EnsureSuccessStatusCode();
                 var content = await response.Content.ReadAsStringAsync();
-                return JsonConvert.DeserializeObject<AlertApiModel>(content);
+                return JsonConvert.DeserializeObject<AlertModel>(content);
             }
             catch (HttpRequestException ex)
             {

@@ -1,13 +1,11 @@
-﻿using Hahn.Assesment.Domain.AlertApi;
-using Hahn.Assesment.Domain.Entities;
+﻿using Hahn.Assesment.Domain.Models.Entities;
 
-namespace Hahn.Assesment.Persistence.Repositories.AlertRepository
+namespace Hahn.Assesment.Persistence.Repositories.AlertRepository;
+
+public interface IAlertRepository
 {
-    public interface IAlertRepository
-    {
-        Task<AlertEntity?> GetCurrentAlertAsync();
-        Task<AlertEntity?> GetAlertByIdAsync(Guid id);
-        Task<IEnumerable<AlertEntity>> GetAlertsAsync();
-        Task<Guid> AddAlertAsync(AlertApiModel alertApíModel);
-    }
+    Task<AlertEntity?> GetCurrentAlertAsync();
+    Task<AlertEntity?> GetAlertByIdAsync(Guid id);
+    Task<IEnumerable<AlertEntity>> GetAlertsAsync();
+    Task<Guid> AddAlertAsync(AlertEntity alertEntity);
 }

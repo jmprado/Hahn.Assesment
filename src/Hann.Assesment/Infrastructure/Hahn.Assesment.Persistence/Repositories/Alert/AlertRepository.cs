@@ -1,6 +1,6 @@
 ﻿using AutoMapper;
-using Hahn.Assesment.Domain.AlertApi;
-using Hahn.Assesment.Domain.Entities;
+using Hahn.Assesment.Domain.Models.AlertApi;
+using Hahn.Assesment.Domain.Models.Entities;
 using Hahn.Assesment.Infrastructure;
 using Microsoft.EntityFrameworkCore;
 
@@ -23,7 +23,7 @@ namespace Hahn.Assesment.Persistence.Repositories.AlertRepository
         /// <param name="alertApíModel"></param>
         /// <returns></returns>
         /// <exception cref="ArgumentNullException"></exception>
-        public async Task<Guid> AddAlertAsync(AlertApiModel alertApíModel)
+        public async Task<Guid> AddAlertAsync(AlertModel alertApíModel)
         {
             if (alertApíModel == null)
                 throw new ArgumentNullException(nameof(alertApíModel));
@@ -70,6 +70,13 @@ namespace Hahn.Assesment.Persistence.Repositories.AlertRepository
             return await _context.Alerts
                 .AsNoTracking()
                 .FirstOrDefaultAsync(f => f.Id == id);
+        }
+
+        public async Task<Guid> AddAlertAsync(AlertEntity alertEntity)
+        {
+            _context.Alerts.Add(alertEntity);
+            await _context.SaveChangesAsync();
+            return alertEntity.Id;
         }
     }
 }

@@ -1,8 +1,8 @@
 ﻿using Newtonsoft.Json;
 
-namespace Hahn.Assesment.Domain.AlertApi;
+namespace Hahn.Assesment.Domain.Models.AlertApi;
 
-public class AlertCategoryApiModel
+public class CategoryModel
 {
     [JsonProperty("category")]
     public required string Category { get; set; }

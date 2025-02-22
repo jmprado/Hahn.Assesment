@@ -1,8 +1,9 @@
-﻿using Newtonsoft.Json;
+﻿
+using Newtonsoft.Json;
 
-namespace Hahn.Assesment.Domain.AlertApi;
+namespace Hahn.Assesment.Domain.Models.AlertApi;
 
-public partial class AlertReportApiModel
+public partial class ReportModel
 {
     [JsonProperty("meldungId")]
     public int MeldungId { get; set; }
