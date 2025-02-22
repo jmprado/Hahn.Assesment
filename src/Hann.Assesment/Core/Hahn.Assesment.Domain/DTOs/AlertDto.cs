@@ -1,4 +1,4 @@
-﻿namespace Hahn.Assesment.Application.DTOs.SeverityDtos;
+﻿namespace Hahn.Assesment.Domain.DTOs;
 
 public class AlertDto
 {

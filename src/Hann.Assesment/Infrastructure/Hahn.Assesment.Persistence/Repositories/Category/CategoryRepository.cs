@@ -1,4 +1,4 @@
-﻿using Hahn.Assesment.Domain.Entities;
+﻿using Hahn.Assesment.Domain.Models.Entities;
 using Hahn.Assesment.Infrastructure;
 using Microsoft.EntityFrameworkCore;
 
@@ -15,8 +15,7 @@ namespace Hahn.Assesment.Persistence.Repositories.Category
 
         public async Task<IEnumerable<string>> GetCategoriesAsync(Guid alertId)
         {
-            return await _context.AlertCategories
-                .AsNoTracking()
+            return await _context.Categories
                 .Where(w => w.AlertId == alertId)
                 .GroupBy(g => g.Category)
                 .Select(s => s.Key)
@@ -24,9 +23,9 @@ namespace Hahn.Assesment.Persistence.Repositories.Category
                 .ToListAsync();
         }
 
-        public async Task AddCategoriesAsync(IEnumerable<AlertCategory> categories)
+        public async Task AddCategoriesAsync(IEnumerable<CategoryEntity> categories)
         {
-            _context.AlertCategories.AddRange(categories);
+            _context.Categories.AddRange(categories);
             await _context.SaveChangesAsync();
         }
     }

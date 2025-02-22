@@ -1,6 +1,5 @@
-﻿using Hahn.Assesment.Domain.Entities;
+﻿using Hahn.Assesment.Domain.Models.Entities;
 using Hahn.Assesment.Infrastructure.Configurations;
-using Hahn.Assesment.Infrastructure.Configurations.Extensions;
 using Microsoft.EntityFrameworkCore;
 using Microsoft.Extensions.Configuration;
 
@@ -17,27 +16,12 @@ namespace Hahn.Assesment.Infrastructure
         }
 
         public DbSet<AlertEntity> Alerts { get; set; }
-        public DbSet<AlertCategory> AlertCategories { get; set; }
-        public DbSet<AlertReport> AlertReports { get; set; }
-
-        protected override void OnConfiguring(DbContextOptionsBuilder optionsBuilder)
-        {
-            if (!optionsBuilder.IsConfigured)
-            {
-                var connectionString = _configuration.GetConnectionString("AlertDb");
-                optionsBuilder.UseSqlServer(connectionString);
-            }
-        }
+        public DbSet<CategoryEntity> Categories { get; set; }
+        public DbSet<ReportEntity> Reports { get; set; }
 
         protected override void OnModelCreating(ModelBuilder modelBuilder)
         {
-            modelBuilder.ApplyConfiguration(new WeatherSeverityAlertConfiguration());
-            modelBuilder.ApplyConfiguration(new AlertCategoryConfiguration());
-            modelBuilder.ApplyConfiguration(new AlertReportConfiguration());
-
-            // Refer to extension method Configurations.Extensions.ApplyDefaultValues
-            modelBuilder.ApplyDefaultValues();
-
+            modelBuilder.ConfigureEntities();
             base.OnModelCreating(modelBuilder);
         }
     }

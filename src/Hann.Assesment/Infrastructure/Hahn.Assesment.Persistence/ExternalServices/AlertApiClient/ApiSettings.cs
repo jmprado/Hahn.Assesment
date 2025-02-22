@@ -1,6 +1,6 @@
-﻿namespace Hahn.Assesment.Persistence.Services.AlertApi;
+﻿namespace Hahn.Assesment.Persistence.ExternalServices.AlertApi;
 
-public class AlertApiSettings
+public class ApiSettings
 {
     public required string AlertEndpointUrl { get; set; }
     public required string CorsAllowedOrigins { get; set; }

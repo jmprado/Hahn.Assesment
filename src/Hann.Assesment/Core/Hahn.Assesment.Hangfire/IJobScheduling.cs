@@ -1,6 +1,6 @@
 ﻿namespace Hahn.Assesment.Hangfire
 {
-    public interface IJobsWorker
+    public interface IJobScheduling
     {
         void AddAlertRecurringJob();
         Task LoadAlertDataAsync();
