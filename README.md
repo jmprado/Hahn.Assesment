@@ -13,7 +13,7 @@ This project contains multiple components, including a Vue.js application for di
 - **Backend**: .NET 9.0, Entity Framework Core, Hangfire
 - **Build Tools**: Docker, Docker Compose
 - **Database**: SQL Server (Docker container)
-- **Task Runner**: PowerShell, Batch scripts
+- **Task Runner**: PowerShell
 
 ## Table of Contents
 
