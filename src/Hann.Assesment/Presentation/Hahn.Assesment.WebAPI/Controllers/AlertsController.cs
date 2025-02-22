@@ -47,7 +47,7 @@ namespace Hahn.Assesment.WebAPI.Controllers
             return Ok(alert);
         }
 
-        [HttpGet("categories/{alertId}")]
+        [HttpGet("{alertId}/categories")]
         [ProducesResponseType(typeof(IEnumerable<string>), StatusCodes.Status200OK)]
         public async Task<IActionResult> GetCategoriesAsync(Guid alertId)
         {
@@ -55,7 +55,7 @@ namespace Hahn.Assesment.WebAPI.Controllers
             return Ok(categories);
         }
 
-        [HttpGet("reports/{alertId}")]
+        [HttpGet("{alertId}/reports")]
         [ProducesResponseType(typeof(IEnumerable<AlertReportDto>), StatusCodes.Status200OK)]
         public async Task<IActionResult> GetReportsAsync(Guid alertId)
         {
