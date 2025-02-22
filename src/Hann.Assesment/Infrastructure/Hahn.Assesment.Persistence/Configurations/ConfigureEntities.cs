@@ -1,7 +1,7 @@
 ﻿using Hahn.Assesment.Domain.Models.Entities;
 using Microsoft.EntityFrameworkCore;
 
-namespace Hahn.Assesment.Infrastructure.Configurations;
+namespace Hahn.Assesment.Persistence.Configurations;
 
 public static class ModelBuilderExtensions
 {

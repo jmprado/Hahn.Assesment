@@ -1,5 +1,5 @@
-using Hahn.Assesment.Hangfire;
-using Hahn.Assesment.WorkerService.ServiceExtensions;
+using Hahn.Assesment.Presentation.Config.AppExtensions;
+using Hahn.Assesment.Presentation.Config.ServiceExtensions;
 using Hangfire;
 using Microsoft.EntityFrameworkCore;
 
@@ -8,10 +8,6 @@ var builder = WebApplication.CreateBuilder(args);
 // Add services to the container.
 builder.Services.AddControllersWithViews();
 
-// Initialize Application Services
-// Refer to Application Layer for more information
-// <see cref="Hahn.Assesment.Application.Middleware.ServiceExtensions"/>
-builder.Services.ConfigureApplication(builder.Configuration);
 
 var hangfireConnString = builder.Configuration.GetConnectionString("Hangfire");
 if (string.IsNullOrEmpty(hangfireConnString))
@@ -27,6 +23,11 @@ builder.Services.AddHangfire((serviceProvider, config) =>
 
 builder.Services.AddHangfireServer();
 
+builder.Services.RegisterSettings(builder.Configuration);
+builder.Services.ConfigureDbContext(builder.Configuration);
+builder.Services.ConfigureAppServices(builder.Configuration);
+builder.Services.AddJobSchedulingService(builder.Configuration);
+
 var app = builder.Build();
 
 // Configure the HTTP request pipeline.
@@ -37,6 +38,7 @@ if (!app.Environment.IsDevelopment())
     app.UseHsts();
 }
 
+app.UseGlobalExceptionHandler();
 app.UseHangfireDashboard();
 app.UseHttpsRedirection();
 app.UseRouting();
@@ -47,12 +49,6 @@ app.MapControllers();
 app.MapHangfireDashboard();
 
 // Add hangfire recurring job to load alert data.
-AddHangfireAlertRecurringJob();
+app.ScheduleJobs();
 
 app.Run();
-
-void AddHangfireAlertRecurringJob()
-{
-    var loadAlertJob = app.Services.CreateScope().ServiceProvider.GetRequiredService<IJobScheduling>();
-    loadAlertJob?.AddAlertRecurringJob();
-}
