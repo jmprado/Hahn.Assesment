@@ -2,7 +2,7 @@
 
 Hey there! Welcome to the Hahn Assessment Project - Alert App. 🚀
 
-This application fetches and displays data provided by the Deutscher Wetterdienst public API.
+This application fetches and displays data provided by the Deutscher Wetterdienst public (API)[https://dwd.api.bund.dev/].
 
 You can find the complete API documentation here.
 
