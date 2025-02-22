@@ -1,5 +1,4 @@
 ﻿using Hahn.Assesment.Domain.Models.Entities;
-using Hahn.Assesment.Infrastructure;
 using Microsoft.EntityFrameworkCore;
 
 namespace Hahn.Assesment.Persistence.Repositories.Report

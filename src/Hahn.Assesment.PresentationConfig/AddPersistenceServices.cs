@@ -1,14 +1,6 @@
-﻿using Hahn.Assesment.Application.Mapping;
-using Hahn.Assesment.Application.Services;
-using Hahn.Assesment.Hangfire;
-using Hahn.Assesment.Infrastructure;
-using Hahn.Assesment.Persistence.ExternalServices.AlertApi;
-using Hahn.Assesment.Persistence.Repositories.AlertRepository;
-using Hahn.Assesment.Persistence.Repositories.Category;
-using Hahn.Assesment.Persistence.Repositories.Report;
-using Microsoft.EntityFrameworkCore;
+﻿using Microsoft.Extensions.DependencyInjection;
 
-namespace Hahn.Assesment.WorkerService.ServiceExtensions;
+namespace Hahn.Assesment.WebAPI.ServiceExtensions;
 
 public static class AppExtensions
 {
@@ -27,8 +19,6 @@ public static class AppExtensions
 
         services.AddScoped<IApiService, ApiService>();
         services.AddScoped<IAlertService, AlertService>();
-
-        services.AddScoped<IJobScheduling, JobsScheduling>();
 
         services.AddAutoMapper(typeof(AlertAppProfile), typeof(AlertApiProfile));
     }

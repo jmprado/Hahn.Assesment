@@ -1,7 +1,6 @@
 ﻿using AutoMapper;
 using Hahn.Assesment.Domain.Models.AlertApi;
 using Hahn.Assesment.Domain.Models.Entities;
-using Hahn.Assesment.Infrastructure;
 using Microsoft.EntityFrameworkCore;
 
 namespace Hahn.Assesment.Persistence.Repositories.AlertRepository

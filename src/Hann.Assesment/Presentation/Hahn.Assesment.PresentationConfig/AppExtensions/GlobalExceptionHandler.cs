@@ -1,6 +1,10 @@
-﻿using Microsoft.AspNetCore.Diagnostics;
+﻿using Microsoft.AspNetCore.Builder;
+using Microsoft.AspNetCore.Diagnostics;
+using Microsoft.AspNetCore.Http;
 using Serilog;
 using System.Net;
+
+namespace Hahn.Assesment.Presentation.Config.AppExtensions;
 
 public static class ExceptionHandlerExtensions
 {

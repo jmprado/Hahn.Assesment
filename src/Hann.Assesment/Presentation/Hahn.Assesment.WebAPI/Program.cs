@@ -1,4 +1,5 @@
-using Hahn.Assesment.WebAPI.ServiceExtensions;
+using Hahn.Assesment.Presentation.Config.AppExtensions;
+using Hahn.Assesment.Presentation.Config.ServiceExtensions;
 using Serilog;
 
 var builder = WebApplication.CreateBuilder(args);
@@ -14,7 +15,8 @@ var logger = new LoggerConfiguration()
 builder.Logging.AddSerilog(logger);
 
 // Refer to Core/Application/Middleware/ServiceExtensions.cs for adding/modify services
-builder.Services.ConfigureApplication(builder.Configuration);
+builder.Services.ConfigureDbContext(builder.Configuration);
+builder.Services.ConfigureAppServices(builder.Configuration);
 
 // CORS
 var allowedOrigins = builder.Configuration.GetSection("AlertApiSettings:CorsAllowedOrigins").Get<string>();
