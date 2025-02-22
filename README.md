@@ -1,11 +1,33 @@
 # Hahn Assessment Project - Alert App
 
-This project contains multiple components, including a Vue.js application for displaying weather alerts and a SQL Server Docker container for managing the database.
+Hey there! Welcome to the Hahn Assessment Project - Alert App. 🚀
 
-## Public API Data Source
-- External API URL: [Deutscher Wetterdienst: API](https://dwd.api.bund.dev/)
-- Method URL: [v16/crowd_meldungen_overview_v2.json](https://s3.eu-central-1.amazonaws.com/app-prod-static.warnwetter.de/v16/crowd_meldungen_overview_v2.json)
+This application fetch and show data provided by the **Deutscher Wetterdienst** public API.
 
+You can find the complete API documentation at https://dwd.api.bund.dev/.
+
+The action picked as DataSource was `crowd_meldungen_overview_v2.json`, the one below:
+
+Warning! This is a JSON file:  
+[crowd_meldungen_overview_v2.json](https://s3.eu-central-1.amazonaws.com/app-prod-static.warnwetter.de/v16/crowd_meldungen_overview_v2.json) 
+
+| **Watch out!** The link above is a JSON file.
+
+The assesment main projects are located at:
+
+- [WebAPI](./src/Hann.Assesment/Presentation/Hahn.Assesment.WebAPI/)
+- [WorkerService](./src/Hann.Assesment/Presentation/Hann.Assesment.WorkerService/)
+- [Vue app](./src/alert-app/)
+- [Hangfire Scheduling](./src/Hann.Assesment/Core/Hahn.Assesment.Hangfire/)
+
+Projects that provides Clean Architecture and DDD:
+- [Core](./src/Hann.Assesment/Core/)
+- [Domain](./src/Hann.Assesment/Core/Hahn.Assesment.Domain/)
+- [Infrastructure](./src/Hann.Assesment/Infrastructure/)
+
+## Extra services/projects
+- [SqlServer Container](./src/.dbcontainer/)
+- [Unit Tests](./src/Hann.Assesment/Tests/)
 
 ## Tech Stack
 
@@ -14,16 +36,6 @@ This project contains multiple components, including a Vue.js application for di
 - **Build Tools**: Docker, Docker Compose
 - **Database**: SQL Server (Docker container)
 - **Task Runner**: PowerShell
-
-## Table of Contents
-
-- [Public API Data Source](#public-api-data-source)
-- [Requirements](#requirements)
-- [Installation and Usage](#installation-and-usage)
-- [Application URLs](#application-urls)
-- [GitHub Actions Workflow](#github-actions-workflow)
-- [Contributing](#contributing)
-- [License](#license)
 
 ## Requirements
 
