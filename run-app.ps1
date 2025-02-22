@@ -1,6 +1,6 @@
 # Run the build script
 Write-Output "Running build script..."
-& .\.dbcontainer\build.ps1
+& .\dbcontainer\build.ps1
 
 # Run the migrations script
 Write-Output "Running migrations script..."
