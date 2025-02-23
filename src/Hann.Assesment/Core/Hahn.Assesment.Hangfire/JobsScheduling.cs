@@ -1,5 +1,4 @@
-﻿using AutoMapper;
-using Hahn.Assesment.Application.Services;
+﻿using Hahn.Assesment.Application.Services;
 using Hangfire;
 
 namespace Hahn.Assesment.Hangfire
@@ -7,7 +6,6 @@ namespace Hahn.Assesment.Hangfire
     public class JobsScheduling : IJobScheduling
     {
         private readonly IAlertService _alertService;
-        private readonly IMapper _mapper;
 
         public JobsScheduling(IAlertService alertService)
         {
