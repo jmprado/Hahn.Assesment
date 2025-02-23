@@ -1,5 +1,6 @@
 ﻿using Hahn.Assesment.Application.Mapping;
 using Hahn.Assesment.Application.Services;
+using Hahn.Assesment.Domain.Models.Settings;
 using Hahn.Assesment.Persistence.ExternalServices.AlertApi;
 using Hahn.Assesment.Persistence.Repositories.AlertRepository;
 using Hahn.Assesment.Persistence.Repositories.Category;

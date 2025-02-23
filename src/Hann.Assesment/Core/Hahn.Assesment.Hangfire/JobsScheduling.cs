@@ -1,4 +1,5 @@
 ﻿using Hahn.Assesment.Application.Services;
+using Hahn.Assesment.Domain.Models.Settings;
 using Hangfire;
 using Microsoft.Extensions.Options;
 

@@ -1,4 +1,4 @@
-﻿namespace Hahn.Assesment.Persistence.ExternalServices.AlertApi;
+﻿namespace Hahn.Assesment.Domain.Models.Settings;
 
 public class ApiSettings
 {
