@@ -20,6 +20,7 @@
   <ItemGroup>
     <ProjectReference Include="..\..\Core\Hahn.Assesment.Application\Hahn.Assesment.Application.csproj" />
     <ProjectReference Include="..\..\Core\Hahn.Assesment.Domain\Hahn.Assesment.Domain.csproj" />
+    <ProjectReference Include="..\..\Core\Hahn.Assesment.Hangfire\Hahn.Assesment.Hangfire.csproj" />
     <ProjectReference Include="..\..\Infrastructure\Hahn.Assesment.Persistence\Hahn.Assesment.Persistence.csproj" />
   </ItemGroup>
 

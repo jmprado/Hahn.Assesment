@@ -3,8 +3,8 @@
 public class CategoryEntity
 {
     public Guid Id { get; set; }
-    public required string Category { get; set; }
-    public required string Condition { get; set; }
+    public string Category { get; set; } = string.Empty;
+    public string Condition { get; set; } = string.Empty;
 
     public Guid AlertId { get; set; }
 

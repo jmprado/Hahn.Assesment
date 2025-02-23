@@ -3,8 +3,8 @@
 public class AlertDto
 {
     public Guid Id { get; set; }
-    public required string UpdatedAt { get; set; }
-    public required string Start { get; set; }
-    public required string End { get; set; }
+    public string UpdatedAt { get; set; } = string.Empty;
+    public string Start { get; set; } = string.Empty;
+    public string End { get; set; } = string.Empty;
     public short WindowsSizeHours { get; set; }
 }
