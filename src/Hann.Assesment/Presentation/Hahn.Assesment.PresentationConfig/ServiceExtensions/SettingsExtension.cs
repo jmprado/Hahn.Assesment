@@ -1,5 +1,4 @@
-﻿using Hahn.Assesment.Hangfire;
-using Hahn.Assesment.Persistence.ExternalServices.AlertApi;
+﻿using Hahn.Assesment.Domain.Models.Settings;
 using Microsoft.Extensions.Configuration;
 using Microsoft.Extensions.DependencyInjection;
 
