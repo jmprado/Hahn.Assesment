@@ -1,5 +1,4 @@
 ﻿using Hahn.Assesment.Domain.Models.Entities;
-using Hahn.Assesment.Infrastructure;
 using Microsoft.EntityFrameworkCore;
 
 namespace Hahn.Assesment.Persistence.Repositories.Report
@@ -19,13 +18,11 @@ namespace Hahn.Assesment.Persistence.Repositories.Report
             await _context.SaveChangesAsync();
         }
 
-        public async Task<IEnumerable<ReportEntity>> GetAlertReportsAsync(Guid alertId, int pageSize = 20, int page = 0)
+        public async Task<IEnumerable<ReportEntity>> GetAlertReportsAsync(Guid alertId)
         {
             return await _context.Reports
                 .OrderBy(r => r.ReportDate)
                 .Where(r => r.AlertId == alertId)
-                .Skip(page * pageSize)
-                .Take(pageSize)
                 .ToListAsync();
         }
     }

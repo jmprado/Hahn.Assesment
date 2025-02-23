@@ -4,7 +4,7 @@ namespace Hahn.Assesment.Persistence.Repositories.Report
 {
     public interface IReportRepository
     {
-        Task<IEnumerable<ReportEntity>> GetAlertReportsAsync(Guid alertId, int pageSize = 20, int page = 0);
+        Task<IEnumerable<ReportEntity>> GetAlertReportsAsync(Guid alertId);
         Task AddReportAsync(ReportEntity report);
     }
 }

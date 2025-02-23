@@ -1,4 +1,5 @@
 ﻿using Hahn.Assesment.Domain.Models.AlertApi;
+using Hahn.Assesment.Domain.Models.Settings;
 using Microsoft.Extensions.Options;
 using Newtonsoft.Json;
 using System.Net;

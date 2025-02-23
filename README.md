@@ -2,9 +2,7 @@
 
 Hey there! Welcome to the Hahn Assessment Project - Alert App. 🚀
 
-This application fetches and displays data provided by the Deutscher Wetterdienst public API.
-
-You can find the complete API documentation here.
+This application fetches and displays data provided by the Deutscher Wetterdienst public [API](https://dwd.api.bund.dev/).
 
 The data source chosen is the `crowd_meldungen_overview_v2.json` file. You can check it out using the link below:
 
@@ -25,7 +23,7 @@ Projects that provides Clean Architecture and DDD:
 ## Extra services/projects
 - [SqlServer Container](./src/dbcontainer/)
 - [Unit Tests](./src/Hann.Assesment/Tests/)
-- [CI](./.github/workflows/dotnet.yml)
+- [CI (Github Actions)](./.github/workflows/dotnet.yml)
 
 ## Tech Stack
 
