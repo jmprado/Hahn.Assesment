@@ -66,6 +66,12 @@ public class AlertService : IAlertService
         return await _categoryRepository.GetCategoriesAsync(alertId);
     }
 
+
+    /// <summary>
+    /// Get the reports of a alert
+    /// </summary>
+    /// <param name="alertId"></param>
+    /// <returns></returns>
     public async Task<IEnumerable<AlertReportDto>> GetReportsAsync(Guid alertId)
     {
         var reports = await _reportRepository.GetAlertReportsAsync(alertId);
@@ -73,6 +79,12 @@ public class AlertService : IAlertService
         return reportsDto;
     }
 
+
+    /// <summary>
+    /// Get a alert by id
+    /// </summary>
+    /// <param name="guid"></param>
+    /// <returns></returns>
     public async Task<AlertDto?> GetAlertByIdAsync(Guid guid)
     {
         var alert = await _alertRepository.GetAlertByIdAsync(guid);
@@ -80,7 +92,13 @@ public class AlertService : IAlertService
         return alertDto;
     }
 
-    public async Task<AlertModel> LoadApiDataAsync()
+
+    /// <summary>
+    /// Load the data from the Api and return the model
+    /// </summary>
+    /// <returns></returns>
+    /// <exception cref="ArgumentNullException"></exception>
+    public async Task<AlertModel?> LoadApiDataAsync()
     {
         var alertData = await _alertApiService.GetAlertDataAsync();
 
@@ -108,6 +126,12 @@ public class AlertService : IAlertService
         return alertId;
     }
 
+    /// <summary>
+    /// 
+    /// </summary>
+    /// <param name="alertId"></param>
+    /// <param name="categories"></param>
+    /// <returns></returns>
     public async Task AddCategoriesAsync(Guid alertId, IEnumerable<CategoryModel> categories)
     {
         var categoriesEntity = _mapper.Map<IEnumerable<CategoryEntity>>(categories);
@@ -118,6 +142,13 @@ public class AlertService : IAlertService
         await _categoryRepository.AddCategoriesAsync(categoriesEntity);
     }
 
+
+    /// <summary>
+    /// 
+    /// </summary>
+    /// <param name="alertId"></param>
+    /// <param name="report"></param>
+    /// <returns></returns>
     public async Task AddReportAsync(Guid alertId, ReportModel report)
     {
         var reportEntity = _mapper.Map<ReportEntity>(report);

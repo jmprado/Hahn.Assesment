@@ -5,7 +5,7 @@ namespace Hahn.Assesment.Domain.Models.AlertApi;
 public class AlertModel
 {
     [JsonProperty("highestSeverities")]
-    public required List<CategoryModel> AlertCategories { get; set; }
+    public List<CategoryModel>? AlertCategories { get; set; }
 
     [JsonProperty("start")]
     public long Start { get; set; }

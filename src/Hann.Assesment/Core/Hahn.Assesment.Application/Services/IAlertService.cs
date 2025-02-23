@@ -10,7 +10,7 @@ namespace Hahn.Assesment.Application.Services
         Task<IEnumerable<AlertDto>> GetAlertsAsync();
         Task<IEnumerable<string>> GetCategoriesAsync(Guid alertId);
         Task<IEnumerable<AlertReportDto>> GetReportsAsync(Guid alertId);
-        Task<AlertModel> LoadApiDataAsync();
+        Task<AlertModel?> LoadApiDataAsync();
 
         Task<Guid> AddAlertAsync(AlertModel alertModel);
         Task AddCategoriesAsync(Guid alertId, IEnumerable<CategoryModel> categories);

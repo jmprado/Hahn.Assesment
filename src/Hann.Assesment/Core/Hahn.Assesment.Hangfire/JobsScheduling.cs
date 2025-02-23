@@ -27,18 +27,13 @@ namespace Hahn.Assesment.Hangfire
         public async Task LoadAlertDataAsync()
         {
             var alertData = await _alertService.LoadApiDataAsync();
-            if (alertData == null)
-                throw new ArgumentNullException(nameof(alertData));
+
+            if (alertData?.AlertCategories == null || alertData.AlertReports == null)
+                throw new ArgumentNullException(nameof(alertData), "Alert data or its categories/reports cannot be null");
 
             var alertId = await _alertService.AddAlertAsync(alertData);
 
-            if (alertData.AlertCategories == null)
-                throw new ArgumentNullException(nameof(alertData.AlertCategories));
-
             BackgroundJob.Enqueue(() => _alertService.AddCategoriesAsync(alertId, alertData.AlertCategories));
-
-            if (alertData.AlertReports == null)
-                throw new ArgumentNullException(nameof(alertData.AlertReports));
 
             foreach (var report in alertData.AlertReports)
             {
