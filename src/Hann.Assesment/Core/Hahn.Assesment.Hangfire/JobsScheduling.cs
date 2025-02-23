@@ -21,6 +21,9 @@ namespace Hahn.Assesment.Hangfire
             // Add a job to seed data on startup
             BackgroundJob.Enqueue(() => LoadAlertDataAsync());
 
+            if (string.IsNullOrEmpty(_jobSettings.CronExpression))
+                throw new ArgumentNullException(nameof(_jobSettings.CronExpression), "Cron expression cannot be null or empty");
+
             // Add a recurring job to load alert data every hour
             RecurringJob.AddOrUpdate("LoadAlertJob", () => LoadAlertDataAsync(), _jobSettings.CronExpression);
         }
